@@ -1,5 +1,6 @@
 import React from "react";
 import { ThemeProvider, css } from "styled-components";
+import { darken } from "polished";
 
 const MATERIAL_OCEAN_COLORS = {
   primary: "#0f111a",
@@ -21,7 +22,8 @@ const SEMANTIC_COLORS = {
   background: THEME.primary,
   bodyType: THEME.lightGrey,
   headerType: THEME.purple,
-  interactive: THEME.red,
+  interactive: THEME.brightBlue,
+  interactiveHover: darken(0.2, THEME.brightBlue),
 };
 const FONTS = {
   mono: `'Fira Mono', monospace`,
@@ -33,6 +35,7 @@ const GRID = {
 const GRID_HELPERS = {
   LayoutContainer: css`
     width: 100%;
+    margin: 0 auto;
     padding-left: ${GRID.pageMargin}px;
     padding-right: ${GRID.pageMargin}px;
     max-width: 1200px;

@@ -1,3 +1,5 @@
+import React from "react";
+import Header from "./Header";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -18,3 +20,12 @@ export const StyledPage = styled(motion.div)`
     ${({ theme }) => theme.grid.LayoutContainer}
   }
 `;
+
+export const Page = ({ children }) => {
+  return (
+    <StyledPage>
+      <Header />
+      <main>{children}</main>
+    </StyledPage>
+  );
+};
