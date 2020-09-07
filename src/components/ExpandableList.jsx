@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import styled, { css } from "styled-components";
-import ReactMarkdown from 'react-markdown';
+import styled from "styled-components";
 import { motion } from 'framer-motion';
 import { useMeasure } from 'react-use'
 
@@ -16,7 +15,7 @@ export const StyledListItem = styled.li`
   }
    span:first-child{
     color: ${({ theme }) => theme.colors.interactive};
-    padding-right: .25em;
+    padding-right: .5em;
   }
 
 

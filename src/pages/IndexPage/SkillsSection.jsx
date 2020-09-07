@@ -1,10 +1,7 @@
 import React from "react";
 import { Section } from "../../components/Section";
-import { List, ListItem } from "../../components/ExpandableList";
-import { ExternalLink } from "../../components/ExternalLink";
 import moment from "moment";
-import ReactMarkdown from 'react-markdown';
-
+import { Markdown } from '../../components/Markdown'
 const SkillsListMD = `
   * ${moment("April 1, 2013").fromNow(true)} years web development
     * react
@@ -21,14 +18,7 @@ const SkillsListMD = `
   * tall
 `;
 
-const Markdown = ({ ...rest }) => {
-  const customRenderers = {
-    list: ({ children, ...rest }) => <List fromMarkdown={true} {...rest}>{children}</List>,
-    listItem: ({ children, ...rest }) => <ListItem fromMarkdown={true} {...rest}>{children}</ListItem>
-  };
 
-  return <ReactMarkdown renderers={customRenderers} {...rest} />
-}
 
 export const SkillsSection = () => {
   return (
