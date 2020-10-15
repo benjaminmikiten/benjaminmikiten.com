@@ -9,7 +9,7 @@ export const IndexPage = () => {
   return (
     <Page>
       <h3>
-        developer @ <ExternalLink>mcj</ExternalLink>
+        front-end developer <ExternalLink href="mailto:benjaminmikiten@gmail.com">for hire</ExternalLink>
       </h3>
       <SocialSection />
       <SkillsSection />
