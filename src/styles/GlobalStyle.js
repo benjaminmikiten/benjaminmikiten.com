@@ -7,14 +7,22 @@ export const BodyStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.bodyType};
     font-family: ${({ theme }) => theme.fonts.default};
     font-size: 1rem;
-    line-height: 1.4;
+    line-height: 1.6;
+  }
+
+  p {
+    ${({ theme }) => theme.type.body};
+  }
+  p + p {
+    padding-top: 1em;
   }
 `;
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
+
   html{
-    font-size: 18px;
+    font-size: 16px;
   }
 
   *,

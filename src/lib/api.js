@@ -16,14 +16,18 @@ const getClient = (preview) => (preview ? previewClient : client);
 function parseProject({ fields }) {
   return {
     name: fields.name || null,
+    teamRoles: fields.teamRoles || null,
+    myRole: fields.myRole || null,
+    technologies: fields.technologies || null,
     slug: fields.slug || null,
-    overviewImage: fields.overviewImage || null,
+    overviewImage: fields.overviewImage.fields || null,
     url: fields.url || null,
     date: fields.date || null,
     clientName: fields.clientName || null,
     overviewBody: fields.overviewBody || null,
     challengesBody: fields.challengesBody || null,
     highlightsBody: fields.highlightsBody || null,
+    projectSections: fields.projectSections || null,
   };
 }
 
@@ -47,12 +51,11 @@ export async function getAllProjects(preview) {
 }
 
 export async function getProjectBySlug(preview, slug) {
-  console.log("GET PROJECT", slug);
   const entry = await getClient(preview).getEntries({
     content_type: "project",
     limit: 1,
     "fields.slug[in]": slug,
   });
-
+  console.log(entry);
   return parseProjectEntries(entry)[0];
 }

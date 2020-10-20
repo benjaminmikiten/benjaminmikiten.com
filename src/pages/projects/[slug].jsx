@@ -3,20 +3,33 @@ import React from "react";
 import ErrorPage from "next/error";
 import { Page } from "../../components/Page";
 import { getProjectBySlug, getAllProjectsWithSlug } from "../../lib/api";
+import ProjectIntroduction from "../../components/ProjectPage/ProjectIntroduction";
+
+// PAGE
 
 export default function ProjectPage({ project, preview }) {
   const router = useRouter();
 
   if (!router.isFallback & !project) {
-    console.log("404");
     return <ErrorPage statusCode={404} />;
   }
 
-  return <Page preview={preview}>{router.isFallback ? <h2>Loading...</h2> : <h2>{project.name}</h2>}</Page>;
+  return (
+    <Page preview={preview}>
+      {router.isFallback ? (
+        <h2>Loading...</h2>
+      ) : (
+        <>
+          <ProjectIntroduction {...project} />
+        </>
+      )}
+    </Page>
+  );
 }
 
+// NEXT JS RENDERING
+
 export async function getStaticProps({ params, preview = false }) {
-  console.log("GET STATIC PROPS", params.slug);
   const data = await getProjectBySlug(preview, params.slug);
 
   console.log("data", data);

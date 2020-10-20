@@ -21,7 +21,7 @@ const THEME = MATERIAL_OCEAN_COLORS;
 const SEMANTIC_COLORS = {
   background: THEME.primary,
   bodyType: THEME.lightGrey,
-  TitleType: THEME.purple,
+  titleType: THEME.mediumBlue,
   interactive: THEME.brightBlue,
   interactiveHover: darken(0.2, THEME.brightBlue),
 };
@@ -38,7 +38,7 @@ const GRID_HELPERS = {
     margin: 0 auto;
     padding-left: ${GRID.pageMargin}px;
     padding-right: ${GRID.pageMargin}px;
-    max-width: 1200px;
+    max-width: 768px;
   `,
 };
 
@@ -47,23 +47,35 @@ const TYPE = {
     font-family: ${FONTS.mono};
     color: ${SEMANTIC_COLORS.bodyType};
     font-size: 1rem;
+    line-height: 1.5;
     font-weight: 400;
   `,
-  largeTitle: css`
+  extraLargeTitle: css`
+    margin: 0;
     font-family: ${FONTS.mono};
-    color: ${SEMANTIC_COLORS.TitleType};
+    color: ${SEMANTIC_COLORS.titleType};
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+  `,
+  largeTitle: css`
+    margin: 0;
+    font-family: ${FONTS.mono};
+    color: ${SEMANTIC_COLORS.titleType};
     font-size: 1.5rem;
     font-weight: 700;
   `,
   mediumTitle: css`
+    margin: 0;
     font-family: ${FONTS.mono};
-    color: ${SEMANTIC_COLORS.TitleType};
+    color: ${SEMANTIC_COLORS.titleType};
     font-weight: 700;
     font-size: 1.2rem;
   `,
   smallTitle: css`
+    margin: 0;
     font-family: ${FONTS.mono};
-    color: ${SEMANTIC_COLORS.TitleType};
+    color: ${SEMANTIC_COLORS.titleType};
     font-size: 1rem;
     font-weight: 700;
   `,
