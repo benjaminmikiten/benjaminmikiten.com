@@ -16,6 +16,10 @@ const socialItems = [
     text: "keybase",
     url: "https://keybase.io/benjaminmikiten",
   },
+  {
+    text: "linkedin",
+    url: "www.linkedin.com/in/benjamin-mikiten",
+  },
 ];
 
 const SocialSection = () => {
