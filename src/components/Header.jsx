@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
+import { Navigation } from "./Navigation";
 
 export const StyledHeader = styled.header`
   ${({ theme }) => theme.grid.LayoutContainer};
@@ -12,13 +13,7 @@ export const StyledHeader = styled.header`
   h1 {
     ${({ theme }) => theme.type.largeTitle};
     a {
-      color: ${({ theme }) => theme.colors.interactive};
-      text-decoration: none;
-      @media (hover: hover) {
-        &:hover {
-          color: ${({ theme }) => theme.colors.interactiveHover};
-        }
-      }
+      ${({ theme }) => theme.type.link}
     }
   }
 `;
@@ -30,6 +25,8 @@ const Header = () => {
         <h1>
           <Link href="/">Benjamin Mikiten</Link>
         </h1>
+
+        <Navigation />
       </div>
     </StyledHeader>
   );
