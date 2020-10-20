@@ -143,7 +143,7 @@ const ProjectIntroduction = (props) => {
 
   return (
     <StyledProjectIntroduction>
-      <ProjectHero {...overviewImage} />
+      {overviewImage && <ProjectHero {...overviewImage} />}
       <ProjectTitle name={name} clientName={clientName} year={date} />
       <ProjectStats {...statsData} />
 
