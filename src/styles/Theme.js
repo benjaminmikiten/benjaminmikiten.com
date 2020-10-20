@@ -21,7 +21,7 @@ const THEME = MATERIAL_OCEAN_COLORS;
 const SEMANTIC_COLORS = {
   background: THEME.primary,
   bodyType: THEME.lightGrey,
-  headerType: THEME.purple,
+  TitleType: THEME.purple,
   interactive: THEME.brightBlue,
   interactiveHover: darken(0.2, THEME.brightBlue),
 };
@@ -49,21 +49,21 @@ const TYPE = {
     font-size: 1rem;
     font-weight: 400;
   `,
-  largeHeader: css`
+  largeTitle: css`
     font-family: ${FONTS.mono};
-    color: ${SEMANTIC_COLORS.headerType};
+    color: ${SEMANTIC_COLORS.TitleType};
     font-size: 1.5rem;
     font-weight: 700;
   `,
-  mediumHeader: css`
+  mediumTitle: css`
     font-family: ${FONTS.mono};
-    color: ${SEMANTIC_COLORS.headerType};
+    color: ${SEMANTIC_COLORS.TitleType};
     font-weight: 700;
     font-size: 1.2rem;
   `,
-  smallHeader: css`
+  smallTitle: css`
     font-family: ${FONTS.mono};
-    color: ${SEMANTIC_COLORS.headerType};
+    color: ${SEMANTIC_COLORS.TitleType};
     font-size: 1rem;
     font-weight: 700;
   `,

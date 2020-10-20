@@ -7,7 +7,7 @@ export const StyledHeader = styled.header`
     border-bottom: solid 1px ${({ theme }) => theme.colors.white};
   }
   h1 {
-    ${({ theme }) => theme.type.largeHeader};
+    ${({ theme }) => theme.type.largeTitle};
     color: ${({ theme }) => theme.colors.yellow};
   }
 `;
