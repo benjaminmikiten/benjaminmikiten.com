@@ -1,30 +1,36 @@
 import React from "react";
 import { Page } from "../../components/Page";
-import { useContentfulClient } from "../../hooks/useContentfulClient";
 import Link from "next/link";
+import { getAllProjects } from "../../lib/api";
 
 const ProjectListing = (props) => {
-  const { name, slug, overviewImage } = props;
+  const { name, slug } = props;
 
   return (
     <div>
-      <Link to={`/projects/${slug}`}>{name}</Link>
+      <Link href={`/projects/${slug}`}>{name}</Link>
     </div>
   );
 };
 
-const ProjectsList = () => {
-  const projects = useContentfulClient("project");
-
-  return <div>{projects && projects.items.map((project, index) => <ProjectListing key={index} {...project.fields} />)}</div>;
-};
-const ProjectsPage = () => {
+const ProjectsPage = ({ projects, preview }) => {
   return (
     <Page>
       <h3>PROJECTS</h3>
-      <ProjectsList />
+      <div>{projects && projects.map((project, index) => <ProjectListing key={project.slug} {...project} />)}</div>
     </Page>
   );
 };
 
 export default ProjectsPage;
+
+export async function getStaticProps({ params, preview = false }) {
+  const data = await getAllProjects(preview);
+
+  return {
+    props: {
+      preview,
+      projects: data ?? null,
+    },
+  };
+}

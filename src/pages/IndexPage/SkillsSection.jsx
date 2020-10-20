@@ -1,7 +1,7 @@
 import React from "react";
 import { Section } from "../../components/Section";
 import moment from "moment";
-import { Markdown } from '../../components/Markdown'
+import { Markdown } from "../../components/Markdown";
 const SkillsListMD = `
   * ${moment("April 1, 2013").fromNow(true)} years web development
     * react
@@ -18,9 +18,7 @@ const SkillsListMD = `
   * tall
 `;
 
-
-
-export const SkillsSection = () => {
+const SkillsSection = () => {
   return (
     <Section>
       <h2>skills</h2>
@@ -28,3 +26,5 @@ export const SkillsSection = () => {
     </Section>
   );
 };
+
+export default SkillsSection;

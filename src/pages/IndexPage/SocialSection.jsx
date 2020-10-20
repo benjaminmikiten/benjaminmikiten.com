@@ -18,7 +18,7 @@ const socialItems = [
   },
 ];
 
-export const SocialSection = () => {
+const SocialSection = () => {
   return (
     <Section>
       <List>
@@ -34,3 +34,5 @@ export const SocialSection = () => {
     </Section>
   );
 };
+
+export default SocialSection;
