@@ -20,7 +20,7 @@ function parseProject({ fields }) {
     myRole: fields.myRole || null,
     technologies: fields.technologies || null,
     slug: fields.slug || null,
-    overviewImage: fields.overviewImage.fields || null,
+    overviewImage: fields.overviewImage?.fields || null,
     url: fields.url || null,
     date: fields.date || null,
     clientName: fields.clientName || null,
