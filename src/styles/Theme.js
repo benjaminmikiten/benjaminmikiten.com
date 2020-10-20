@@ -62,7 +62,7 @@ const TYPE = {
     margin: 0;
     font-family: ${FONTS.mono};
     color: ${SEMANTIC_COLORS.titleType};
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
   `,
   mediumTitle: css`
@@ -70,7 +70,7 @@ const TYPE = {
     font-family: ${FONTS.mono};
     color: ${SEMANTIC_COLORS.titleType};
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   `,
   smallTitle: css`
     margin: 0;
