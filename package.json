@@ -9,6 +9,7 @@
     "contentful": "^7.14.8",
     "framer-motion": "^2.3.0",
     "moment": "^2.27.0",
+    "next": "^9.5.5",
     "polished": "^3.6.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -20,10 +21,9 @@
     "styled-normalize": "^8.0.7"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.11.1"
   }
 }
