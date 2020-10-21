@@ -21,13 +21,20 @@ export const StyledNavItem = styled.div`
     padding: 0.1em 0.25em;
     ${({ theme }) => theme.type.link}
 
+    @media (hover: hover) {
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.brightBlue};
+        color: ${({ theme }) => theme.colors.primary};
+      }
+    }
+
     ${({ isActive, theme }) => {
       switch (isActive) {
         case true:
           return css`
             font-weight: 700;
             color: ${theme.colors.primary};
-            background-color: ${theme.colors.yellow};
+            background-color: ${theme.colors.red};
             @media (hover: hover) {
               &:hover {
                 background-color: ${theme.colors.brightBlue};
@@ -45,16 +52,24 @@ export const StyledNavItem = styled.div`
 
 const NavItemsData = [
   {
-    url: "/projects",
+    url: "/",
+    title: "home",
+    match: /^\/{1}$/,
+  },
+  {
+    url: "/projects/",
     title: "projects",
+    match: /projects(\/)?(.+)?/,
   },
   {
-    url: "/resume",
+    url: "/resume/",
     title: "resume",
+    match: /resume(\/)?/,
   },
   {
-    url: "/articles",
+    url: "/articles/",
     title: "articles",
+    match: /articles(\/)?(.+)?/,
   },
 ];
 
@@ -64,8 +79,8 @@ export const Navigation = () => {
   return (
     <StyledNavigation>
       <div>
-        {NavItemsData.map(({ url, title }, index) => {
-          const isActive = pathname.includes(url);
+        {NavItemsData.map(({ url, title, match }, index) => {
+          const isActive = match.test(pathname);
           return (
             <StyledNavItem key={index} isActive={isActive}>
               <Link href={url}>{title}</Link>

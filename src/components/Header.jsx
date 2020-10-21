@@ -12,9 +12,7 @@ export const StyledHeader = styled.header`
   }
   h1 {
     ${({ theme }) => theme.type.largeTitle};
-    a {
-      ${({ theme }) => theme.type.link}
-    }
+    color: ${({ theme }) => theme.colors.yellow};
   }
 `;
 
@@ -22,9 +20,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <div>
-        <h1>
-          <Link href="/">Benjamin Mikiten</Link>
-        </h1>
+        <h1>Benjamin Mikiten</h1>
 
         <Navigation />
       </div>
