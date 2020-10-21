@@ -15,7 +15,7 @@ const StyledProjectListing = styled.div`
     color: ${({ theme }) => theme.colors.interactive};
   }
   p {
-    ${({ theme }) => theme.type.mediumTitle};
+    ${({ theme }) => theme.type.extraSmallTitle};
     color: ${({ theme }) => theme.colors.lightGrey};
     font-weight: 400;
     padding-bottom: 0.5rem;
@@ -31,7 +31,7 @@ const ProjectListing = (props) => {
   return (
     <StyledProjectListing>
       <Link passHref href={url}>
-        <a>{name} &rarr;</a>
+        <a>{name} ➜</a>
       </Link>
       <p>
         {clientName}, {date}

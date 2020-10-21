@@ -14,7 +14,7 @@ const StyledProjectListing = styled.div`
     color: ${({ theme }) => theme.colors.interactive};
   }
   p {
-    ${({ theme }) => theme.type.smallTitle};
+    ${({ theme }) => theme.type.extraSmallTitle};
     color: ${({ theme }) => theme.colors.lightGrey};
     font-weight: 400;
     padding-bottom: 0.5rem;
@@ -29,7 +29,7 @@ const ArticleListing = (props) => {
   return (
     <StyledProjectListing>
       <Link passHref href={url}>
-        <a>{title} &rarr;</a>
+        <a>{title} ➜</a>
       </Link>
       <p>{moment(postDate).format("MMMM DD, YYYY")}</p>
       <PillList items={topics} />
