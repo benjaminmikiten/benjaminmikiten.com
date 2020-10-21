@@ -1,7 +1,7 @@
 import React from "react";
-import { Section } from "../../components/Section";
-import { List, ListItem } from "../../components/ExpandableList";
-import { ExternalLink } from "../../components/ExternalLink";
+import { Section } from "../Section";
+import { List, ListItem } from "../ExpandableList";
+import { ExternalLink } from "../ExternalLink";
 
 const socialItems = [
   {
