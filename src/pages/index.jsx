@@ -2,8 +2,8 @@ import React from "react";
 import { Page } from "../components/Page";
 import { ExternalLink } from "../components/ExternalLink";
 
-import SocialSection from "./IndexPage/SocialSection";
-import SkillsSection from "./IndexPage/SkillsSection";
+import SocialSection from "../components/IndexPage/SocialSection";
+import SkillsSection from "../components/IndexPage/SkillsSection";
 
 const IndexPage = () => {
   return (
