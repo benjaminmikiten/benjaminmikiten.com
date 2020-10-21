@@ -62,6 +62,46 @@ export async function getProjectBySlug(preview, slug) {
   return parseProjectEntries(entry)[0];
 }
 
+// SOCIAL ITEMS
+
+function parseSocialItem({ fields }) {
+  return {
+    title: fields.title || null,
+    slug: fields.slug || null,
+    url: fields.url || null,
+    icon: fields.icon || null,
+  };
+}
+
+function parseSocialItemEntries(entries, cb = parseSocialItem) {
+  return entries?.items?.map(cb);
+}
+
+export async function getAllSocialItemsWithSlug(preview) {
+  const entries = await getClient(preview).getEntries({
+    content_type: "socialItem",
+    select: "fields.slug",
+  });
+  return parseSocialItemEntries(entries, (socialItem) => socialItem.fields);
+}
+
+export async function getAllSocialItems(preview) {
+  console.log("get client", preview);
+  const entries = await getClient(preview).getEntries({
+    content_type: "blogPost",
+  });
+  return parseSocialItemEntries(entries);
+}
+
+export async function getSocialItemBySlug(preview, slug) {
+  const entry = await getClient(preview).getEntries({
+    content_type: "socialItem",
+    limit: 1,
+    "fields.slug[in]": slug,
+  });
+  return parseSocialItemEntries(entry)[0];
+}
+
 // ARTICLES
 
 function parseArticle({ fields }) {
