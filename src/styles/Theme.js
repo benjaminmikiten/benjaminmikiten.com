@@ -58,7 +58,7 @@ const TYPE = {
     font-family: ${FONTS.mono};
     color: ${SEMANTIC_COLORS.bodyType};
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 2;
     font-weight: 400;
   `,
   extraLargeTitle: css`
@@ -84,6 +84,13 @@ const TYPE = {
     font-size: 1.5rem;
   `,
   smallTitle: css`
+    margin: 0;
+    font-family: ${FONTS.mono};
+    color: ${SEMANTIC_COLORS.titleType};
+    font-size: 1.25rem;
+    font-weight: 700;
+  `,
+  extraSmallTitle: css`
     margin: 0;
     font-family: ${FONTS.mono};
     color: ${SEMANTIC_COLORS.titleType};

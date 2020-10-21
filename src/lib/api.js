@@ -13,6 +13,8 @@ const previewClient = createClient({
 
 const getClient = (preview) => (preview ? previewClient : client);
 
+// PROJECTS
+
 function parseProject({ fields }) {
   return {
     name: fields.name || null,
@@ -57,6 +59,45 @@ export async function getProjectBySlug(preview, slug) {
     limit: 1,
     "fields.slug[in]": slug,
   });
-  console.log(entry);
   return parseProjectEntries(entry)[0];
+}
+
+// ARTICLES
+
+function parseArticle({ fields }) {
+  return {
+    title: fields.title || null,
+    slug: fields.slug || null,
+    body: fields.body || null,
+    postDate: fields.postDate || null,
+    topics: fields.topics || null,
+  };
+}
+
+function parseArticleEntries(entries, cb = parseArticle) {
+  return entries?.items?.map(cb);
+}
+
+export async function getAllArticlesWithSlug(preview) {
+  const entries = await getClient(preview).getEntries({
+    content_type: "blogPost",
+    select: "fields.slug",
+  });
+  return parseArticleEntries(entries, (blogPost) => blogPost.fields);
+}
+
+export async function getAllArticles(preview) {
+  const entries = await getClient(preview).getEntries({
+    content_type: "blogPost",
+  });
+  return parseArticleEntries(entries);
+}
+
+export async function getArticleBySlug(preview, slug) {
+  const entry = await getClient(preview).getEntries({
+    content_type: "blogPost",
+    limit: 1,
+    "fields.slug[in]": slug,
+  });
+  return parseArticleEntries(entry)[0];
 }
