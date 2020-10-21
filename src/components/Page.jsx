@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Header";
+import Footer from "./Footer";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -26,6 +27,7 @@ export const Page = ({ children }) => {
     <StyledPage>
       <Header />
       <main>{children}</main>
+      <Footer />
     </StyledPage>
   );
 };
