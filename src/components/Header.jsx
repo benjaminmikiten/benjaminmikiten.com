@@ -5,7 +5,7 @@ import { Navigation } from "./Navigation";
 
 export const StyledHeader = styled.header`
   ${({ theme }) => theme.grid.LayoutContainer};
-  padding-bottom: 0.5rem;
+  padding-bottom: 2rem;
   > div {
     padding: 0.5rem 0;
     border-bottom: solid 1px ${({ theme }) => theme.colors.lightGrey};
