@@ -5,8 +5,10 @@ import Link from "next/link";
 import { getAllProjects } from "../../lib/api";
 import { PillList } from "../../components/PillList";
 import moment from "moment";
+import { useRouter } from "next/router";
 
 const StyledProjectListing = styled.div`
+  cursor: pointer;
   a {
     ${({ theme }) => theme.type.link};
     ${({ theme }) => theme.type.largeTitle};
@@ -23,10 +25,14 @@ const StyledProjectListing = styled.div`
 
 const ProjectListing = (props) => {
   const { name, slug, clientName, technologies, date } = props;
+  const router = useRouter();
+  var url = `/projects/${slug}`;
 
   return (
     <StyledProjectListing>
-      <Link href={`/projects/${slug}`}>{name}</Link>
+      <Link passHref href={url}>
+        <a>{name} &rarr;</a>
+      </Link>
       <p>
         {clientName}, {date}
       </p>
