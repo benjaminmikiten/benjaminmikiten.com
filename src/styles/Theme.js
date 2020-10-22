@@ -38,7 +38,7 @@ const GRID_HELPERS = {
     margin: 0 auto;
     padding-left: ${GRID.pageMargin}px;
     padding-right: ${GRID.pageMargin}px;
-    max-width: 768px;
+    max-width: calc(768px + ${GRID.pageMargin * 2}px);
   `,
 };
 
