@@ -28,8 +28,6 @@ function parseProject({ fields }) {
     date: fields.date || null,
     clientName: fields.clientName || null,
     overviewBody: fields.overviewBody || null,
-    // challengesBody: fields.challengesBody || null,
-    // highlightsBody: fields.highlightsBody || null,
     projectSections: fields.projectSections || null,
   };
 }
@@ -86,10 +84,10 @@ export async function getAllSocialItemsWithSlug(preview) {
 }
 
 export async function getAllSocialItems(preview) {
-  console.log("get client", preview);
   const entries = await getClient(preview).getEntries({
-    content_type: "blogPost",
+    content_type: "socialItem",
   });
+  console.log("ENTRIES", entries);
   return parseSocialItemEntries(entries);
 }
 
@@ -100,6 +98,48 @@ export async function getSocialItemBySlug(preview, slug) {
     "fields.slug[in]": slug,
   });
   return parseSocialItemEntries(entry)[0];
+}
+
+// KEYBOARDS
+
+function parseKeyboard({ fields }) {
+  return {
+    model: fields.model || null,
+    slug: fields.switches || null,
+    switches: fields.switches || null,
+    description: fields.description || null,
+    mods: fields.mods || null,
+    media: fields.media || null,
+    firmwareUrl: fields.firmwareUrl || null,
+  };
+}
+
+function parseKeyboardEntries(entries, cb = parseKeyboard) {
+  return entries?.items?.map(cb);
+}
+
+export async function getAllKeyboardsWithSlug(preview) {
+  const entries = await getClient(preview).getEntries({
+    content_type: "blogPost",
+    select: "fields.slug",
+  });
+  return parseKeyboardEntries(entries, (blogPost) => blogPost.fields);
+}
+
+export async function getAllKeyboards(preview) {
+  const entries = await getClient(preview).getEntries({
+    content_type: "blogPost",
+  });
+  return parseKeyboardEntries(entries);
+}
+
+export async function getKeyboardBySlug(preview, slug) {
+  const entry = await getClient(preview).getEntries({
+    content_type: "blogPost",
+    limit: 1,
+    "fields.slug[in]": slug,
+  });
+  return parseKeyboardEntries(entry)[0];
 }
 
 // ARTICLES
