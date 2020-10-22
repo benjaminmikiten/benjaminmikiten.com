@@ -9,8 +9,6 @@ export const MediaItem = ({ fields }) => {
   const isVideo = contentType.includes("video");
   const isImage = contentType.includes("image");
 
-  console.log("media item", isVideo, isImage);
-
   if (isVideo) return <VideoPlayer {...fields} />;
   if (isImage) return <Image {...fields} />;
 };

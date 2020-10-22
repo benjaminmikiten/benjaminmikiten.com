@@ -15,7 +15,6 @@ const StyledPillList = styled.div`
 `;
 
 export const PillList = ({ items = [] }) => {
-  console.log("ITEMS", items);
   return (
     <StyledPillList>
       {items.map((item, index) => {

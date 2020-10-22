@@ -32,7 +32,6 @@ export const useContentfulClient = (contentType, options = {}) => {
         })
         .then((response) => {
           clearTimeout(requestTimeout.current);
-          console.log("API RESPONSE", response);
           setData(response);
         })
         .catch((err) => {

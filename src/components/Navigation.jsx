@@ -81,7 +81,6 @@ const NavItemsData = [
 
 export const Navigation = () => {
   const { pathname } = useRouter();
-  console.log("path", pathname);
   return (
     <StyledNavigation>
       <div>

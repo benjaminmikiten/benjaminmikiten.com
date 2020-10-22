@@ -34,7 +34,6 @@ export default function ProjectPage({ project, preview }) {
 export async function getStaticProps({ params, preview = false }) {
   const data = await getProjectBySlug(preview, params.slug);
 
-  console.log("data", data);
   return {
     props: {
       preview,

@@ -28,7 +28,6 @@ export default KeyboardsPage;
 export async function getStaticProps({ params, preview = false }) {
   const data = await getAllKeyboards(preview);
 
-  console.log(data);
   return {
     props: {
       preview,

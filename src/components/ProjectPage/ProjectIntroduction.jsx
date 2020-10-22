@@ -135,8 +135,6 @@ const ProjectStats = ({ name, date, myRole, teamRoles, technologies, url }) => {
 const ProjectIntroduction = (props) => {
   const { name, clientName, overviewBody, highlightsBody, challengesBody, overviewImage, date, myRole, technologies, teamRoles, url, projectSections } = props;
 
-  console.log("props", props);
-
   const statsData = {
     name,
     date,

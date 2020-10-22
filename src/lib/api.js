@@ -22,7 +22,6 @@ function parseFeaturedEntires(entries) {
     return entry ?? null;
   });
   return parsedEntries;
-  // console.log("parseFeaturedEntries", entries);
 }
 
 export async function getFeaturedEntries(preview) {
@@ -35,7 +34,6 @@ export async function getFeaturedEntries(preview) {
       })
       .then((data) => {
         const fields = { ...{ ...data.items[0] }.fields };
-        // console.log("FIELDS", fields);
         return {
           ...fields,
         };
@@ -132,7 +130,6 @@ export async function getAllSocialItems(preview) {
   const entries = await getClient(preview).getEntries({
     content_type: "socialItem",
   });
-  console.log("ENTRIES", entries);
   return parseSocialItemEntries(entries);
 }
 

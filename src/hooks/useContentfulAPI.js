@@ -28,7 +28,6 @@ export const useContentfulAPI = (url) => {
           return response.json();
         })
         .then((result) => {
-          console.log("API", result);
           setData(result);
         })
         .catch((err) => {
