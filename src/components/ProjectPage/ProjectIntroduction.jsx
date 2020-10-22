@@ -8,14 +8,14 @@ import { PillList } from "../PillList";
 
 const StyledProjectIntroduction = styled.div`
   padding: 1rem 0;
-  h3 {
-    ${({ theme }) => theme.type.mediumTitle}
+  h2 {
+    ${({ theme }) => theme.type.largeTitle}
   }
 `;
 
 const StyledProjectTitle = styled.div`
   padding: 2rem 0;
-  h2 {
+  h1 {
     ${({ theme }) => theme.type.extraLargeTitle};
     color: ${({ theme }) => theme.colors.lightGrey};
   }
@@ -63,7 +63,7 @@ const StyledProjectSection = styled.div`
 const StyledProjectOverview = styled.div`
   padding-bottom: 2rem;
   h3 {
-    ${({ theme }) => theme.type.mediumTitle}
+    ${({ theme }) => theme.type.largeTitle}
   }
   > div {
     padding-bottom: 2rem;
@@ -75,7 +75,7 @@ const StyledProjectOverview = styled.div`
 const ProjectTitle = ({ name, clientName, year }) => {
   return (
     <StyledProjectTitle>
-      <h2>{name}</h2>
+      <h1>{name}</h1>
       <span>
         for {clientName} ({year})
       </span>
@@ -153,7 +153,7 @@ const ProjectIntroduction = (props) => {
       <ProjectStats {...statsData} />
 
       <div>
-        <h3>Overview</h3>
+        <h2>Overview</h2>
         <Markdown source={overviewBody} />
       </div>
     </StyledProjectIntroduction>

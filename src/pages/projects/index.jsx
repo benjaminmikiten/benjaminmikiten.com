@@ -14,7 +14,7 @@ export const ProjectListing = ({ featured, slug, name, clientName, date, technol
   const url = `/projects/${slug}`;
   return (
     <CardItem isFeatured={featured} title={name} url={url} description={description}>
-      <PillList items={technologies} />
+      {/* <PillList items={technologies} /> */}
     </CardItem>
   );
 };

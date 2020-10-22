@@ -4,6 +4,7 @@ import ErrorPage from "next/error";
 import { Page } from "../../components/Page";
 import { getProjectBySlug, getAllProjectsWithSlug } from "../../lib/api";
 import ProjectIntroduction from "../../components/ProjectPage/ProjectIntroduction";
+import { ProjectSections } from "../../components/ProjectPage/ProjectSections";
 
 // PAGE
 
@@ -21,6 +22,7 @@ export default function ProjectPage({ project, preview }) {
       ) : (
         <>
           <ProjectIntroduction {...project} />
+          <ProjectSections sections={project.projectSections} />
         </>
       )}
     </Page>
