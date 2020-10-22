@@ -57,14 +57,19 @@ const NavItemsData = [
     match: /^\/{1}$/,
   },
   {
+    url: "/resume/",
+    title: "resume",
+    match: /resume(\/)?/,
+  },
+  {
     url: "/projects/",
     title: "projects",
     match: /projects(\/)?(.+)?/,
   },
   {
-    url: "/resume/",
-    title: "resume",
-    match: /resume(\/)?/,
+    url: "/keyboards/",
+    title: "keyboards",
+    match: /keyboards(\/)?(.+)?/,
   },
   {
     url: "/articles/",
