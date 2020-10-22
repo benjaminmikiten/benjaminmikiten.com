@@ -13,6 +13,51 @@ const previewClient = createClient({
 
 const getClient = (preview) => (preview ? previewClient : client);
 
+// HOMEPAGE
+
+const contentTypes = ["project", "blogPost", "keyboard"];
+
+function parseFeaturedEntires(entries) {
+  const parsedEntries = entries.map((entry, index) => {
+    return entry ?? null;
+  });
+  return parsedEntries;
+  // console.log("parseFeaturedEntries", entries);
+}
+
+export async function getFeaturedEntries(preview) {
+  const getFeaturedContentType = async (contentType) => {
+    return getClient(preview)
+      .getEntries({
+        content_type: contentType,
+        limit: 1,
+        "fields.featured[in]": true,
+      })
+      .then((data) => {
+        const fields = { ...{ ...data.items[0] }.fields };
+        // console.log("FIELDS", fields);
+        return {
+          ...fields,
+        };
+      });
+  };
+  const getFeaturedContentTypes = async () => {
+    return Promise.all(
+      contentTypes.map((contentType) => {
+        return getFeaturedContentType(contentType);
+      })
+    );
+  };
+
+  return getFeaturedContentTypes()
+    .then((data) => {
+      return parseFeaturedEntires(data);
+    })
+    .then((parsedData) => {
+      return parsedData;
+    });
+}
+
 // PROJECTS
 
 function parseProject({ fields }) {
@@ -29,6 +74,7 @@ function parseProject({ fields }) {
     clientName: fields.clientName || null,
     overviewBody: fields.overviewBody || null,
     projectSections: fields.projectSections || null,
+    featured: fields.featured || false,
   };
 }
 
@@ -50,7 +96,6 @@ export async function getAllProjects(preview) {
   });
   return parseProjectEntries(entries);
 }
-
 export async function getProjectBySlug(preview, slug) {
   const entry = await getClient(preview).getEntries({
     content_type: "project",
@@ -105,12 +150,14 @@ export async function getSocialItemBySlug(preview, slug) {
 function parseKeyboard({ fields }) {
   return {
     model: fields.model || null,
-    slug: fields.switches || null,
+    slug: fields.slug || null,
     switches: fields.switches || null,
     description: fields.description || null,
     mods: fields.mods || null,
     media: fields.media || null,
+    firmwareDescription: fields.firmwareDescription || null,
     firmwareUrl: fields.firmwareUrl || null,
+    featured: fields.featured || false,
   };
 }
 
@@ -120,22 +167,22 @@ function parseKeyboardEntries(entries, cb = parseKeyboard) {
 
 export async function getAllKeyboardsWithSlug(preview) {
   const entries = await getClient(preview).getEntries({
-    content_type: "blogPost",
+    content_type: "keyboard",
     select: "fields.slug",
   });
-  return parseKeyboardEntries(entries, (blogPost) => blogPost.fields);
+  return parseKeyboardEntries(entries, (keyboard) => keyboard.fields);
 }
 
 export async function getAllKeyboards(preview) {
   const entries = await getClient(preview).getEntries({
-    content_type: "blogPost",
+    content_type: "keyboard",
   });
   return parseKeyboardEntries(entries);
 }
 
 export async function getKeyboardBySlug(preview, slug) {
   const entry = await getClient(preview).getEntries({
-    content_type: "blogPost",
+    content_type: "keyboard",
     limit: 1,
     "fields.slug[in]": slug,
   });
@@ -151,6 +198,7 @@ function parseArticle({ fields }) {
     body: fields.body || null,
     postDate: fields.postDate || null,
     topics: fields.topics || null,
+    featured: fields.featured || false,
   };
 }
 

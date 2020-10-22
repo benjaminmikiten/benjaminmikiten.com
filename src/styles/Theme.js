@@ -44,7 +44,7 @@ const GRID_HELPERS = {
 
 const TYPE = {
   link: css`
-    text-decoration: none;
+    /* text-decoration: none; */
     color: ${({ theme }) => theme.colors.interactive};
     cursor: pointer;
     transition: all 0.5s ease;

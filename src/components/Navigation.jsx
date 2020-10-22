@@ -18,6 +18,7 @@ export const StyledNavItem = styled.div`
   padding: 0.5rem;
   flex: 0 0 auto;
   a {
+    text-decoration: none;
     padding: 0.1em 0.25em;
     ${({ theme }) => theme.type.link}
 

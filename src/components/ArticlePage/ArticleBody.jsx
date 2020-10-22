@@ -65,6 +65,7 @@ export const StyledArticleBody = styled.div`
 `;
 
 const ArticleBody = ({ body }) => {
+  console.log("ARTICLE BODY", body);
   return (
     <StyledArticleBody>
       <Markdown source={body} />
