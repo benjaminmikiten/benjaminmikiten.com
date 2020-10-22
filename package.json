@@ -23,7 +23,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "npm run getcontent",
+    "getcontent": "ENV=LOCAL node src/helpers/getLocalContent.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,6 +43,11 @@
     ]
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.11.1"
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "babel-plugin-styled-components": "^1.11.1",
+    "dotenv": "^8.2.0"
   }
 }
