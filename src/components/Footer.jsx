@@ -1,7 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { getAllSocialItems } from "../lib/api";
+import SocialItems from "../data/socialItems.json";
+import { StyledNavItem, StyledNavigation } from "./Navigation";
+import { ExternalLink } from "./ExternalLink";
 
 export const StyledFooter = styled.footer`
   ${({ theme }) => theme.grid.LayoutContainer};
@@ -13,34 +15,25 @@ export const StyledFooter = styled.footer`
   }
 `;
 
-const Footer = ({ socialItems }) => {
+const Footer = () => {
   return (
     <StyledFooter>
       <div>
-        <div>
-          {socialItems &&
-            socialItems.map(({ title, url, slug }, index) => {
+        <StyledNavItem>Benjamin Mikiten</StyledNavItem>
+        <StyledNavigation as={"div"}>
+          <div>
+            {SocialItems.map(({ title, url, slug }, index) => {
               return (
-                <span key={slug}>
-                  <Link href={url}>{title}</Link>
-                </span>
+                <StyledNavItem key={slug}>
+                  <ExternalLink href={url}>{title.toLowerCase()}</ExternalLink>
+                </StyledNavItem>
               );
             })}
-        </div>
+          </div>
+        </StyledNavigation>
       </div>
     </StyledFooter>
   );
 };
 
 export default Footer;
-
-// export async function getStaticProps({ params, preview = false }) {
-//   const data = await getAllSocialItems(preview);
-
-//   return {
-//     props: {
-//       preview,
-//       socialItems: data ?? null,
-//     },
-//   };
-// }
