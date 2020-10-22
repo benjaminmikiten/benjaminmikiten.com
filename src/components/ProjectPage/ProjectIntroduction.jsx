@@ -31,7 +31,7 @@ const StyledProjectHero = styled.div`
   &:before {
     content: "";
     width: 100%;
-    padding-bottom: calc((5 / 16) * 100%);
+    padding-bottom: calc((9 / 16) * 100%);
     display: block;
   }
   > div {
@@ -50,6 +50,9 @@ const StyledProjectStats = styled.div`
   padding-bottom: 2rem;
   table {
     width: 100%;
+  }
+  a {
+    ${({ theme }) => theme.type.link}
   }
 `;
 
@@ -92,36 +95,38 @@ const ProjectStats = ({ name, date, myRole, teamRoles, technologies, url }) => {
   return (
     <StyledProjectStats>
       <StyledTable>
-        {/* My Role */}
-        <StyledTableRow>
-          <StyledTableCell>My Role</StyledTableCell>
-          <StyledTableCell>
-            <PillList items={myRole} />
-          </StyledTableCell>
-        </StyledTableRow>
-        {/* Team */}
-        <StyledTableRow>
-          <StyledTableCell>Team</StyledTableCell>
-          <StyledTableCell>
-            <PillList items={teamRoles} />
-          </StyledTableCell>
-        </StyledTableRow>
-        {/* Technologies */}
-        <StyledTableRow>
-          <StyledTableCell>Technologies</StyledTableCell>
-          <StyledTableCell>
-            <PillList items={technologies} />
-          </StyledTableCell>
-        </StyledTableRow>
-        {/* URL, if there is one */}
-        {url && (
+        <tbody>
+          {/* My Role */}
           <StyledTableRow>
-            <StyledTableCell>URL</StyledTableCell>
+            <StyledTableCell>Role</StyledTableCell>
             <StyledTableCell>
-              <Link href={url}>{name}</Link>
+              <PillList items={myRole} />
             </StyledTableCell>
           </StyledTableRow>
-        )}
+          {/* Team */}
+          <StyledTableRow>
+            <StyledTableCell>Team</StyledTableCell>
+            <StyledTableCell>
+              <PillList items={teamRoles} />
+            </StyledTableCell>
+          </StyledTableRow>
+          {/* Technologies */}
+          <StyledTableRow>
+            <StyledTableCell>Tech</StyledTableCell>
+            <StyledTableCell>
+              <PillList items={technologies} />
+            </StyledTableCell>
+          </StyledTableRow>
+          {/* URL, if there is one */}
+          {url && (
+            <StyledTableRow>
+              <StyledTableCell>URL</StyledTableCell>
+              <StyledTableCell>
+                <Link href={url}>{url}</Link>
+              </StyledTableCell>
+            </StyledTableRow>
+          )}
+        </tbody>
       </StyledTable>
     </StyledProjectStats>
   );
