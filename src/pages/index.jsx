@@ -122,7 +122,6 @@ export default IndexPage;
 export async function getStaticProps({ params, preview = false }) {
   const data = await getFeaturedEntries(preview);
   const [project, blogPost, keyboard] = data;
-  console.log(data);
 
   return {
     props: {

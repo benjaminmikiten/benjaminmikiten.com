@@ -1,5 +1,4 @@
 import React from "react";
-import { ThemeContext } from "styled-components";
 import { Markdown } from "../Markdown";
 import styled from "styled-components";
 import { MediaItem } from "../MediaItem";
@@ -13,7 +12,6 @@ export const StyledProjectSection = styled.div`
   }
 `;
 export const ProjectSection = ({ mediaItems, title, description }) => {
-  console.log(mediaItems);
   return (
     <StyledProjectSection>
       <h3>{title}</h3>
