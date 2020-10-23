@@ -22,7 +22,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "postinstall": "npm run getcontent",
     "getcontent": "ENV=LOCAL node src/helpers/getLocalContent.js"
