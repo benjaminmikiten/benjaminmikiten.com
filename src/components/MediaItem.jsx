@@ -11,4 +11,5 @@ export const MediaItem = ({ fields }) => {
 
   if (isVideo) return <VideoPlayer {...fields} />;
   if (isImage) return <Image {...fields} />;
+  return null;
 };
