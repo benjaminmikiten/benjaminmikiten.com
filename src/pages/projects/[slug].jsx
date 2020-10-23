@@ -22,7 +22,7 @@ export default function ProjectPage({ project, preview }) {
       ) : (
         <>
           <ProjectIntroduction {...project} />
-          {project.projectSections && <ProjectSections sections={project.projectSections} />}
+          {project && project.projectSections && <ProjectSections sections={project.projectSections} />}
         </>
       )}
     </Page>
