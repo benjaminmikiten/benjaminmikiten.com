@@ -4,7 +4,6 @@ import React from "react";
 import ErrorPage from "next/error";
 import { Page } from "../../components/Page";
 import { getKeyboardBySlug, getAllKeyboardsWithSlug } from "../../lib/api";
-import { Markdown } from "../../components/Markdown";
 import ArticleBody from "../../components/ArticlePage/ArticleBody";
 
 const StyledKeyboardPage = styled.div`
@@ -23,8 +22,9 @@ export default function KeyboardsPage({ keyboard, preview }) {
     return <ErrorPage statusCode={404} />;
   }
 
+  if (!keyboard) return null;
   const { model, mods, description, firmwareDescription } = keyboard;
-  console.log("mods", mods);
+
   return (
     <Page preview={preview}>
       {router.isFallback ? (

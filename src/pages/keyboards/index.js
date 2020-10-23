@@ -1,7 +1,6 @@
 import React from "react";
 import { Page } from "../../components/Page";
 import { getAllKeyboards } from "../../lib/api";
-import { PillList } from "../../components/PillList";
 import moment from "moment";
 import { CardListing, CardItem } from "../../components/CardListing";
 
@@ -31,7 +30,7 @@ export async function getStaticProps({ params, preview = false }) {
   return {
     props: {
       preview,
-      keyboards: data ?? null,
+      keyboards: data ?? [],
     },
   };
 }
