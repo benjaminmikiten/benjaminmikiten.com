@@ -47,6 +47,6 @@ export async function getStaticPaths() {
   const allArticles = await getAllArticlesWithSlug();
   return {
     paths: allArticles?.map(({ slug }) => `/articles/${slug}`) ?? [],
-    fallback: true,
+    fallback: false,
   };
 }

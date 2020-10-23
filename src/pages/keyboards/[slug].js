@@ -61,6 +61,6 @@ export async function getStaticPaths() {
   const allKeyboards = await getAllKeyboardsWithSlug();
   return {
     paths: allKeyboards?.map(({ slug }) => `/keyboards/${slug}`) ?? [],
-    fallback: true,
+    fallback: false,
   };
 }
