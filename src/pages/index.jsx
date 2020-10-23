@@ -1,12 +1,10 @@
 import React from "react";
-import moment from "moment";
 import { Page } from "../components/Page";
 import styled from "styled-components";
 import { ExternalLink } from "../components/ExternalLink";
 
 import { Blockquote } from "../components/Blockquote";
 import Link from "next/link";
-import { Markdown } from "../components/Markdown";
 import { getFeaturedEntries } from "../lib/api";
 import { ProjectListing } from "../pages/projects/index";
 import { ArticleListing } from "../pages/articles/index";
@@ -22,31 +20,6 @@ export const Introduction = styled.div`
     font-size: 1.2rem;
   }
 `;
-
-const StatsLists = [
-  {
-    title: "Skills",
-    body: `# asdf
-    * react
-    * next.js, gatsby
-    * api/cms integration
-    * animation libs
-    * styled components
-    * a11y standards
-    * node, babel, webpack
-    * express, mongoDB
-    * docker, nginx, apache
-    * git, git flow, gitgub
-    * photoshop, sketch, figma
-`,
-  },
-  {
-    title: "Experience",
-    body: `* ${moment("April 1, 2013").fromNow(true)} years web development
-    * bfa communication design txst 2013
-  `,
-  },
-];
 
 const HomeNavigation = styled.div`
   padding-top: 2rem;
