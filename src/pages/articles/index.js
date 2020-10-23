@@ -1,7 +1,5 @@
 import React from "react";
-import styled from "styled-components";
 import { Page } from "../../components/Page";
-import Link from "next/link";
 import { getAllArticles } from "../../lib/api";
 import { PillList } from "../../components/PillList";
 import moment from "moment";
