@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Benjamin Mikiten",
+    "pronouns": ["he", "him"],
+    "pronunciation": "MIK-ih-tin",
+    "title": "Senior Front End Developer",
+    "contact": {
+      "email": "benjamin.mikiten@gmail.com",
+      "website": "benjaminmikiten@gmail.com",
+      "phone_number": "210-422-5177",
+      "github": "github.com/benjaminmikiten"
+    },
+    "experience": [
+      {
+        "company": "McGarrah Jessee",
+        "tenure": "8 years",
+        "responsibilities_md": ["Lead front end engineering decisions, optimized projects for performance, stability, and maintainability.", "Pursued uncompromising attention to detail, dedication to delivering the absolute best product to clients: working smart _and_ hard.", "Learned new technologies and tools as needed to fit client goals and stay current.", "Collaborated with back-end developers, UI/UX designers.", "Worked directly with client teams coordinating and managing team goals.", "Brought designers’ comps and wireframes to pixel-perfect reality while championing a11y and UX best practices.", "Scoped and quoted projects to meet deadlines, budgets, and requirements.", "Communicated technical considerations and goals to team members and clients.", "Maintained documentation, style guides, and design systems for long-term projects.", "Mentored interns, and shared experiences and knowledge with colleagues."]
+      }
+    ],
+    "skillsets": [
+      {
+        "title": "Front End Development",
+        "details": ["React, Gatsby, Next.JS", "Design system development", "Framer Motion, React Spring, GSAP", "Sketch, Figma,  Adobe CC", "Styled Components, Modular SCSS", "Redux, zustand, etc", "TS, JS, HTML & CSS/SCSS", "Building for a11y", "Version control (git, git-flow, GitHub)", "Agile processes", "Analytics integration", "SEO concerns"]
+      },
+      {
+        "title": "Back End Development / DevOps",
+        "details": ["Node, Express, MongoDB", "API design", "Rails, Postgres", "NGINX, Apache", "Docker", "AWS, Netlify"]
+      }
+    ],
+    "education": [{ "school": "Texas State University", "gradYear": 2013, "degree": "BFA in Communication Design", "details": ["Background in Graphic Design gives me a distinct advantage in working with designers.", "Focused on Interactive Design courses and web development skills.", "Courses and self-taught in web development, computer science, constantly curious to learn more."] }]
+  }
+]
