@@ -10,6 +10,7 @@ export const StyledNavigation = styled.nav`
     margin: -0.5rem;
     width: calc(100% + 1rem);
     display: inline-flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
   }
 `;
