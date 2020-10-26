@@ -22,7 +22,9 @@ export const StyledCard = styled.a`
       ${({ theme }) => theme.type.extraSmallTitle};
       color: ${({ theme }) => theme.colors.lightGrey};
       font-weight: 400;
-      padding-bottom: 0.5rem;
+      &:not(:last-child){
+        padding-bottom: 0.5rem;
+      }
     }
   }
   @media (hover: hover) {

@@ -4,10 +4,8 @@ import { getAllProjects } from "../../lib/api";
 import { PillList } from "../../components/PillList";
 import moment from "moment";
 import { CardListing, CardItem } from "../../components/CardListing";
+import { sortByFeatured, sortByPostDate } from '../../helpers/sortFunctions';
 
-const sortBySortDate = (a, b) => {
-  return moment(b.sortDate).valueOf() - moment(a.sortDate).valueOf();
-};
 
 export const ProjectListing = ({ featured, slug, name, clientName, date, technologies, ...rest }) => {
   const description = `${clientName}, ${date}`;
@@ -22,7 +20,7 @@ export const ProjectListing = ({ featured, slug, name, clientName, date, technol
 const ProjectsPage = ({ projects, preview }) => {
   return (
     <Page>
-      <CardListing>{projects && projects.sort(sortBySortDate).map((project, index) => <ProjectListing key={index} {...project} />)}</CardListing>
+      <CardListing>{projects && projects.sort(sortByPostDate).sort(sortByFeatured).map((project, index) => <ProjectListing key={index} {...project} />)}</CardListing>
     </Page>
   );
 };

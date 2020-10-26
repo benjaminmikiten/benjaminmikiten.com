@@ -2,15 +2,11 @@ import React from "react";
 import { Page } from "../../components/Page";
 import { getAllKeyboards } from "../../lib/api";
 import { CardListing, CardItem } from "../../components/CardListing";
-import { sortByFeaturedAndDate } from "../../helpers/sortFunctions";
+import { sortByFeatured } from "../../helpers/sortFunctions";
 
 export const sortByAlpha = (a, b) => {
-  if (a.model.toLowerCase() < b.model.toLowerCase()) return -1;
-  if (b.model.toLowerCase() < a.model.toLowerCase()) return 1;
-}
-
-export const sortByFeatured = (a, b) => {
-  if(a.featured) return -1
+  if (a.model.toLowerCase() < b.model.toLowerCase()) return 1;
+  if (b.model.toLowerCase() < a.model.toLowerCase()) return -1;
 }
 
 

@@ -4,7 +4,7 @@ import { Page } from "../../components/Page";
 import { getAllArticles } from "../../lib/api";
 import { PillList } from "../../components/PillList";
 import { CardListing, CardItem } from "../../components/CardListing";
-import { sortByFeaturedAndDate } from '../../helpers/sortFunctions';
+import { sortByFeatured, sortByPostDate } from '../../helpers/sortFunctions';
 
 export const ArticleListing = ({ featured, title, slug, postDate, topics }) => {
   var url = `/articles/${slug}`;
@@ -21,7 +21,7 @@ export const ArticleListing = ({ featured, title, slug, postDate, topics }) => {
 const ArticlesPage = ({ articles, preview }) => {
   return (
     <Page>
-      <CardListing>{articles && articles.sort(sortByFeaturedAndDate).map((article, index) => <ArticleListing key={article.slug} {...article} />)}</CardListing>
+      <CardListing>{articles && articles.sort(sortByPostDate).sort(sortByFeatured).map((article, index) => <ArticleListing key={article.slug} {...article} />)}</CardListing>
     </Page>
   );
 };
