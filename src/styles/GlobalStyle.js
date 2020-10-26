@@ -22,7 +22,10 @@ export const GlobalStyle = createGlobalStyle`
   ${normalize}
 
   html{
-    font-size: 16px;
+    font-size: 14px;
+    @media screen and (min-width: 768px){
+      font-size: 16px;
+    }
   }
 
   *,

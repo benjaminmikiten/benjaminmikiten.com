@@ -30,8 +30,9 @@ const FONTS = {
   default: `'Fira Mono', monospace`,
 };
 const GRID = {
-  pageMargin: 32,
+  pageMargin: 16,
 };
+
 const GRID_HELPERS = {
   LayoutContainer: css`
     width: 100%;
@@ -65,37 +66,41 @@ const TYPE = {
     margin: 0;
     font-family: ${FONTS.mono};
     color: ${SEMANTIC_COLORS.titleType};
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     line-height: 1.2;
     font-weight: 700;
-  `,
-  largeTitle: css`
+    `,
+    largeTitle: css`
     margin: 0;
     font-family: ${FONTS.mono};
     color: ${SEMANTIC_COLORS.titleType};
     font-size: 2rem;
+    line-height: 1.2;
     font-weight: 700;
-  `,
-  mediumTitle: css`
+    `,
+    mediumTitle: css`
     margin: 0;
     font-family: ${FONTS.mono};
     color: ${SEMANTIC_COLORS.titleType};
     font-weight: 700;
     font-size: 1.5rem;
-  `,
-  smallTitle: css`
+    line-height: 1.2;
+    `,
+    smallTitle: css`
     margin: 0;
     font-family: ${FONTS.mono};
     color: ${SEMANTIC_COLORS.titleType};
     font-size: 1.25rem;
+    line-height: 1.2;
     font-weight: 700;
-  `,
-  extraSmallTitle: css`
+    `,
+    extraSmallTitle: css`
     margin: 0;
     font-family: ${FONTS.mono};
     color: ${SEMANTIC_COLORS.titleType};
     font-size: 1rem;
     font-weight: 700;
+    line-height: 1.2;
   `,
 };
 
