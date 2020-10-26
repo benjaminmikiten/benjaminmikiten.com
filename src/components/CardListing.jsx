@@ -17,6 +17,9 @@ export const StyledCard = styled.a`
 
     > h3 {
       ${({ theme }) => theme.type.mediumTitle}
+      &:not(:last-child){
+        padding-bottom: 0.5rem;
+      }
     }
     > p {
       ${({ theme }) => theme.type.extraSmallTitle};

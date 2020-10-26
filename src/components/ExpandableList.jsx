@@ -6,8 +6,21 @@ import { useMeasure } from "react-use";
 export const StyledListItem = styled.li`
   padding: 0;
   margin: 0;
+  position: relative;
   &:not(:last-child) {
     padding-bottom: 1em;
+  }
+  &:before{
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    border: solid 1px ${({theme}) => theme.colors.lightGrey};
+    border-radius: 100%;
+    display: block;
+    // background: ${({theme}) => theme.colors.lightGrey};
+    top: calc(.5em - (5px/2));
+    left: calc(-1em - 5px);
   }
 
   span {
@@ -71,6 +84,9 @@ export const ListItem = ({ children }) => {
 
 export const List = ({ children, isExpanded = true, canExpand }) => {
   const [ref, bounds] = useMeasure();
+  const containerInitial = {
+    height: isExpanded ? bounds.height + bounds.x : 0,
+  }
   const containerAnimation = {
     height: isExpanded ? bounds.height + bounds.x : 0,
   };
@@ -79,7 +95,7 @@ export const List = ({ children, isExpanded = true, canExpand }) => {
   };
 
   return (
-    <StyledList animate={containerAnimation}>
+    <StyledList initial={containerInitial} animate={containerAnimation}>
       <motion.ul ref={ref} animate={listAnimation}>
         {children}
       </motion.ul>
