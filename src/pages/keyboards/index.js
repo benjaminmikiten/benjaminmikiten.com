@@ -1,23 +1,29 @@
 import React from "react";
 import { Page } from "../../components/Page";
 import { getAllKeyboards } from "../../lib/api";
-import moment from "moment";
 import { CardListing, CardItem } from "../../components/CardListing";
+import { sortByFeaturedAndDate } from "../../helpers/sortFunctions";
 
-const sortBySortDate = (a, b) => {
-  return moment(b.sortDate).valueOf() - moment(a.sortDate).valueOf();
-};
+export const sortByAlpha = (a, b) => {
+  if (a.model.toLowerCase() < b.model.toLowerCase()) return -1;
+  if (b.model.toLowerCase() < a.model.toLowerCase()) return 1;
+}
+
+export const sortByFeatured = (a, b) => {
+  if(a.featured) return -1
+}
+
 
 export const KeyboardListing = ({ featured, slug, model, switches, ...rest }) => {
   const description = `${switches}`;
   const url = `/keyboards/${slug}`;
-  return <CardItem isFeatured={featured} title={model} url={url} description={description}></CardItem>;
+  return <CardItem featured={featured} title={model} url={url} description={description}></CardItem>;
 };
 
 const KeyboardsPage = ({ keyboards, preview }) => {
   return (
     <Page>
-      <CardListing>{keyboards && keyboards.sort(sortBySortDate).map((keyboard, index) => <KeyboardListing key={index} {...keyboard} />)}</CardListing>
+      <CardListing>{keyboards && keyboards.sort(sortByAlpha).sort(sortByFeatured).map((keyboard, index) => <KeyboardListing key={index} {...keyboard} />)}</CardListing>
     </Page>
   );
 };

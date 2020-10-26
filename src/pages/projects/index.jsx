@@ -13,7 +13,7 @@ export const ProjectListing = ({ featured, slug, name, clientName, date, technol
   const description = `${clientName}, ${date}`;
   const url = `/projects/${slug}`;
   return (
-    <CardItem isFeatured={featured} title={name} url={url} description={description}>
+    <CardItem featured={featured} title={name} url={url} description={description}>
       <PillList items={technologies} />
     </CardItem>
   );

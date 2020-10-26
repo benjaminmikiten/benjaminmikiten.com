@@ -1,29 +1,27 @@
 import React from "react";
+import moment from 'moment';
 import { Page } from "../../components/Page";
 import { getAllArticles } from "../../lib/api";
 import { PillList } from "../../components/PillList";
-import moment from "moment";
 import { CardListing, CardItem } from "../../components/CardListing";
+import { sortByFeaturedAndDate } from '../../helpers/sortFunctions';
 
 export const ArticleListing = ({ featured, title, slug, postDate, topics }) => {
   var url = `/articles/${slug}`;
   const description = moment(postDate).format("MMMM DD, YYYY");
 
   return (
-    <CardItem isFeatured={featured} title={title} url={url} description={description}>
+    <CardItem featured={featured} title={title} url={url} description={description}>
       <PillList items={topics} />
     </CardItem>
   );
 };
 
-const sortByPostDate = (a, b) => {
-  return moment(b.postDate).valueOf() - moment(a.postDate).valueOf();
-};
 
 const ArticlesPage = ({ articles, preview }) => {
   return (
     <Page>
-      <CardListing>{articles && articles.sort(sortByPostDate).map((article, index) => <ArticleListing key={article.slug} {...article} />)}</CardListing>
+      <CardListing>{articles && articles.sort(sortByFeaturedAndDate).map((article, index) => <ArticleListing key={article.slug} {...article} />)}</CardListing>
     </Page>
   );
 };

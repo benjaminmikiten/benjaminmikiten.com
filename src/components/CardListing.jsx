@@ -33,8 +33,8 @@ export const StyledCard = styled.a`
     }
   }
 
-  ${({ isFeatured, theme }) => {
-    if (isFeatured) {
+  ${({ featured, theme }) => {
+    if (featured) {
       return css`
         > div {
           border-left: solid 1rem ${theme.colors.yellow};
@@ -44,10 +44,10 @@ export const StyledCard = styled.a`
   }}
 `;
 
-export const CardItem = ({ title, url, description, children, isFeatured = false }) => {
+export const CardItem = ({ title, url, description, children, featured = false }) => {
   return (
     <Link passHref href={url}>
-      <StyledCard isFeatured={isFeatured}>
+      <StyledCard featured={featured}>
         <div>
           <h3>{title} ➜</h3>
           <p>{description}</p>
