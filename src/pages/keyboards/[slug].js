@@ -26,7 +26,7 @@ export default function KeyboardsPage({ keyboard, preview }) {
   const { model, mods, description, firmwareDescription } = keyboard;
 
   return (
-    <Page preview={preview}>
+    <Page preview={preview} title={model ? model : "Keyboard"}>
       {router.isFallback ? (
         <h2>Loading...</h2>
       ) : (

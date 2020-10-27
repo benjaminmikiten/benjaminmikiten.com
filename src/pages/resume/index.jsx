@@ -66,7 +66,7 @@ const EducationItem = ({ school, gradYear, degree, details }) => {
 const ResumePage = () => {
   console.log(ResumeData[0].experience);
   return (
-    <Page>
+    <Page title={"Resume"}>
       <StyledResumeSection>
         <h2>
           Get in touch: <a href="mailto:benjaminmikiten@gmail.com">benjaminmikiten@gmail.com</a>

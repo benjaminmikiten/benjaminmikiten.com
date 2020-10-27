@@ -7,8 +7,7 @@ import { sortByFeatured } from "../../helpers/sortFunctions";
 export const sortByAlpha = (a, b) => {
   if (a.model.toLowerCase() < b.model.toLowerCase()) return 1;
   if (b.model.toLowerCase() < a.model.toLowerCase()) return -1;
-}
-
+};
 
 export const KeyboardListing = ({ featured, slug, model, switches, ...rest }) => {
   const description = `${switches}`;
@@ -18,8 +17,14 @@ export const KeyboardListing = ({ featured, slug, model, switches, ...rest }) =>
 
 const KeyboardsPage = ({ keyboards, preview }) => {
   return (
-    <Page>
-      <CardListing>{keyboards && keyboards.sort(sortByAlpha).sort(sortByFeatured).map((keyboard, index) => <KeyboardListing key={index} {...keyboard} />)}</CardListing>
+    <Page title={`Keyboards`}>
+      <CardListing>
+        {keyboards &&
+          keyboards
+            .sort(sortByAlpha)
+            .sort(sortByFeatured)
+            .map((keyboard, index) => <KeyboardListing key={index} {...keyboard} />)}
+      </CardListing>
     </Page>
   );
 };

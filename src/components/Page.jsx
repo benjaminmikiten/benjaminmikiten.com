@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import Header from "./Header";
 import Footer from "./Footer";
 import styled from "styled-components";
@@ -22,9 +23,12 @@ export const StyledPage = styled(motion.div)`
   }
 `;
 
-export const Page = ({ children }) => {
+export const Page = ({ children, title }) => {
   return (
     <StyledPage>
+      <Head>
+        <title>{title ? `${title} | ` : null} Benjamin Mikiten</title>
+      </Head>
       <Header />
       <main>{children}</main>
       <Footer />

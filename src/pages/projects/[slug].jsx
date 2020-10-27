@@ -16,7 +16,7 @@ export default function ProjectPage({ project, preview }) {
   }
 
   return (
-    <Page preview={preview}>
+    <Page preview={preview} title={project ? project.name : "Projects"}>
       {router.isFallback ? (
         <h2>Loading...</h2>
       ) : (

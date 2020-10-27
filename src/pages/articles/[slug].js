@@ -17,7 +17,7 @@ export default function ArticlesPage({ article, preview }) {
   }
 
   return (
-    <Page preview={preview}>
+    <Page preview={preview} title={aricle ? article.title : "Article"}>
       {router.isFallback ? (
         <h2>Loading...</h2>
       ) : (
