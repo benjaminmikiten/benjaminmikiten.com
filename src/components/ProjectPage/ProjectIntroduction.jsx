@@ -13,7 +13,7 @@ const StyledProjectIntroduction = styled.div`
   }
 `;
 
-const StyledProjectTitle = styled.div`
+export const StyledProjectTitle = styled.div`
   padding: 2rem 0;
   h1 {
     ${({ theme }) => theme.type.extraLargeTitle};
@@ -83,7 +83,8 @@ const ProjectTitle = ({ name, clientName, year }) => {
   );
 };
 
-const ProjectHero = ({ description, file, title }) => {
+export const ProjectHero = ({ description, file, title }) => {
+  console.log("FILE", file);
   return (
     <StyledProjectHero backgroundSrc={file.url}>
       <div></div>

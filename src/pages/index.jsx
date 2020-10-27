@@ -67,7 +67,7 @@ const IndexPage = (props) => {
         <ul>
           <li>
             <h3>
-              Want me on your team? Check out my <Link href={"/resume"}>resume.</Link>
+              Want me on your team? Check out my <Link href={"/resume"}>resume</Link>.
             </h3>
           </li>
           <li>

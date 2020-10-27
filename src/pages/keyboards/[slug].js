@@ -4,12 +4,19 @@ import React from "react";
 import ErrorPage from "next/error";
 import { Page } from "../../components/Page";
 import { getKeyboardBySlug, getAllKeyboardsWithSlug } from "../../lib/api";
-import ArticleBody from "../../components/ArticlePage/ArticleBody";
+import { Markdown } from "../../components/Markdown";
+import { Button } from "../../components/Button";
+import { ProjectHero, StyledProjectTitle } from "../../components/ProjectPage/ProjectIntroduction";
 
 const StyledKeyboardPage = styled.div`
   h2 {
     padding-top: 2rem;
     ${({ theme }) => theme.type.largeTitle};
+    color: ${({ theme }) => theme.colors.yellow};
+  }
+  h1 {
+    padding-top: 2rem;
+    ${({ theme }) => theme.type.extraLargeTitle};
     color: ${({ theme }) => theme.colors.yellow};
   }
 `;
@@ -23,7 +30,7 @@ export default function KeyboardsPage({ keyboard, preview }) {
   }
 
   if (!keyboard) return null;
-  const { model, mods, description, firmwareDescription } = keyboard;
+  const { model, mods, description, switches, firmwareUrl, firmwareDescription, media } = keyboard;
 
   return (
     <Page preview={preview} title={model ? model : "Keyboard"}>
@@ -31,14 +38,22 @@ export default function KeyboardsPage({ keyboard, preview }) {
         <h2>Loading...</h2>
       ) : (
         <StyledKeyboardPage>
-          <h1>{model}</h1>
+          {media[0] && <ProjectHero {...media[0].fields} />}
+          <StyledProjectTitle>
+            <h1>{model}</h1>
+            <span>{switches}</span>
+          </StyledProjectTitle>
 
           <h2>Description</h2>
-          <ArticleBody body={description} />
+          <Markdown source={description} />
           <h2>Mods</h2>
-          <ArticleBody body={mods} />
+          <Markdown source={mods} />
           <h2>Firmware</h2>
-          <ArticleBody body={firmwareDescription} />
+          <Markdown source={firmwareDescription} />
+          <br />
+          <Button as={`a`} target="_blank" rel="noreferrer noopener" href={firmwareUrl}>
+            Get my Firmware
+          </Button>
         </StyledKeyboardPage>
       )}
     </Page>
