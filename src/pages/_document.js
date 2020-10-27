@@ -18,10 +18,9 @@ export default class MyCustomDocument extends Document {
           {this.props.styleTags}
 
           <meta property="og:title" content="Benjamin Mikiten, Senior Front End Developer" />
-<meta property="og:description" content="Senior Front End Developer with 8 years experience and a degree in Graphic Design. I like solving problems, and building flexible design system with well-writen code. My design background helps me bridge the gap between design and development in both engineering and communication." />
-<meta property="og:image" content="/social.png">
-<meta property="og:url" content="https://benjaminmikiten.com" />
-
+          <meta property="og:description" content="Senior Front End Developer with 8 years experience and a degree in Graphic Design. I like solving problems, and building flexible design system with well-writen code. My design background helps me bridge the gap between design and development in both engineering and communication." />
+          <meta property="og:image" content="/social.png" />
+          <meta property="og:url" content="https://benjaminmikiten.com" />
 
           <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
           <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
@@ -40,7 +39,6 @@ export default class MyCustomDocument extends Document {
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
           <meta name="theme-color" content="#ffffff" />
-
         </Head>
         <body>
           <Main />
