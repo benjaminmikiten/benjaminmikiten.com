@@ -7,6 +7,11 @@ import { Button, ButtonsGroup } from "../../components/Button";
 
 const StyledResumeSection = styled.div`
   padding-bottom: 2rem;
+  h2 {
+    a {
+      ${({ theme }) => theme.type.link}
+    }
+  }
   h3 {
     color: ${({ theme }) => theme.colors.yellow};
   }
@@ -63,6 +68,9 @@ const ResumePage = () => {
   return (
     <Page>
       <StyledResumeSection>
+        <h2>
+          Get in touch: <a href="mailto:benjaminmikiten@gmail.com">benjaminmikiten@gmail.com</a>
+        </h2>
         <h2>Download a copy of my resume</h2>
         <ButtonsGroup>
           <Button as="a" target="_blank" href={"/BenjaminMikiten_2020_resume_noRefs.pdf"}>

@@ -31,6 +31,10 @@ const HomeNavigation = styled.div`
   }
   li {
     padding-bottom: 2rem;
+    &:first-of-type {
+      padding-bottom: 4rem;
+    }
+
     > a {
       padding-top: 1rem;
     }
@@ -52,10 +56,10 @@ const IndexPage = (props) => {
     <Page>
       <Introduction>
         <h2>
-          front-end developer <ExternalLink href="mailto:benjaminmikiten@gmail.com">for hire</ExternalLink>
+          Senior Front End Developer <ExternalLink href="mailto:benjaminmikiten@gmail.com">for hire</ExternalLink>
         </h2>
         <Blockquote>
-          <p>I'm a Front End Developer with 8 years experience and a degree in Graphic Design. I like solving problems, and building beautiful design system with well-writen code. My design background helps me bridge the gap between design and development in both engineering and communication.</p>
+          <p>I'm a Front End Developer with 8 years experience and a degree in Graphic Design. I like solving problems, and building flexible design system with well-writen code. My design background helps me bridge the gap between design and development in both engineering and communication.</p>
         </Blockquote>
       </Introduction>
 
