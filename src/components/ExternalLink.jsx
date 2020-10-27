@@ -6,5 +6,9 @@ export const StyledExternalLink = styled.a`
 `;
 
 export const ExternalLink = ({ children, ...rest }) => {
-  return <StyledExternalLink {...rest}>{children}</StyledExternalLink>;
+  return (
+    <StyledExternalLink target="_blank" rel="noopener noreferrer" {...rest}>
+      {children}
+    </StyledExternalLink>
+  );
 };
