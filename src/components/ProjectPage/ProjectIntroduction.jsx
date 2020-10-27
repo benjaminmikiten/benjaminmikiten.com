@@ -84,7 +84,6 @@ const ProjectTitle = ({ name, clientName, year }) => {
 };
 
 export const ProjectHero = ({ description, file, title }) => {
-  console.log("FILE", file);
   return (
     <StyledProjectHero backgroundSrc={file.url}>
       <div></div>
