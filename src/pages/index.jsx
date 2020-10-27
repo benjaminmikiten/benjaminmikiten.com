@@ -59,7 +59,7 @@ const IndexPage = (props) => {
           Senior Front End Developer <ExternalLink href="mailto:benjaminmikiten@gmail.com">for hire</ExternalLink>
         </h2>
         <Blockquote>
-          <p>I'm a Front End Developer with 8 years experience and a degree in Graphic Design. I like solving problems, and building flexible design system with well-writen code. My design background helps me bridge the gap between design and development in both engineering and communication.</p>
+          <p>I'm a Senior Front End Developer with 8 years experience and a degree in Graphic Design. I like solving problems, and building flexible design system with well-writen code. My design background helps me bridge the gap between design and development in both engineering and communication.</p>
         </Blockquote>
       </Introduction>
 
