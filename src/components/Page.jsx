@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { GlobalStyle, BodyStyle } from "../styles/GlobalStyle";
 
 export const StyledPage = styled(motion.div)`
   width: 100%;
@@ -26,6 +27,8 @@ export const StyledPage = styled(motion.div)`
 export const Page = ({ children, title }) => {
   return (
     <StyledPage>
+      <GlobalStyle />
+      <BodyStyle />
       <Head>
         <title>{title ? `${title} | ` : null} Benjamin Mikiten</title>
       </Head>
