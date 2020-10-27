@@ -1,34 +1,107 @@
 import React from "react";
+import styled from "styled-components";
 import { Page } from "../../components/Page";
-import {Blockquote} from '../../components/Blockquote';
-import {List} from '../../components/ExpandableList'
-import {Markdown} from '../../components/Markdown';
+import ResumeData from "../../assets/BenjaminMikiten_2020_resume.json";
+import { List, ListItem } from "../../components/ExpandableList";
+import { Button, ButtonsGroup } from "../../components/Button";
 
-const ExperienceMD =
-`* 8 years Experience in Front End Development
-* Lead front end engineering decisions, collaborating with design teams and project management.
-* Scoped and estimated projects.
-* Maintaned and managed code bases for long-term projects.
-* Communicated with clients and
+const StyledResumeSection = styled.div`
+  padding-bottom: 2rem;
+  h3 {
+    color: ${({ theme }) => theme.colors.yellow};
+  }
+  ul {
+    @media (min-width: 768px) {
+      columns: 2;
+    }
+  }
 `;
-const SkillsMD = `
 
-`;
+const ExperienceItem = ({ company, tenure, responsibilities }) => {
+  return (
+    <div>
+      <h3>
+        <span>{company}</span>, {tenure}
+      </h3>
+      <List>
+        {responsibilities.map((item, index) => {
+          return <ListItem>{item}</ListItem>;
+        })}
+      </List>
+    </div>
+  );
+};
+
+const SkillsItem = ({ title, details }) => {
+  return (
+    <StyledResumeSection>
+      <h3>{title}</h3>
+      <List>
+        {details.map((item, index) => {
+          return <ListItem>{item}</ListItem>;
+        })}
+      </List>
+    </StyledResumeSection>
+  );
+};
+
+const EducationItem = ({ school, gradYear, degree, details }) => {
+  return (
+    <StyledResumeSection>
+      <h3>{`${degree}, ${school} (${gradYear})`}</h3>
+      <List>
+        {details.map((item, index) => {
+          return <ListItem>{item}</ListItem>;
+        })}
+      </List>
+    </StyledResumeSection>
+  );
+};
 
 const ResumePage = () => {
+  console.log(ResumeData[0].experience);
   return (
-  <Page>
-    <Blockquote>
-          <p>I'm a Front End Developer with 8 years experience and a degree in Graphic Design. I like solving problems, and building beautiful design system with well-writen code. My design background helps me bridge the gap between design and development in both engineering and communication.</p>
-        </Blockquote>
+    <Page>
+      <StyledResumeSection>
+        <h2>Download a copy of my resume</h2>
+        <ButtonsGroup>
+          <Button as="a" target="_blank" href={"/BenjaminMikiten_2020_resume_noRefs.pdf"}>
+            PDF
+          </Button>
+          <Button as="a" target="_blank" href={"/BenjaminMikiten_2020_resume.json"}>
+            JSON
+          </Button>
+        </ButtonsGroup>
+      </StyledResumeSection>
 
-        <h3>Experience</h3>
-          <Markdown source={ExperienceMD} />
+      <StyledResumeSection>
+        <h2>Experience</h2>
+        <div>
+          {ResumeData[0].experience.map((item, index) => {
+            return <ExperienceItem {...item} key={index} />;
+          })}
+        </div>
+      </StyledResumeSection>
 
-        <h3>Skills</h3>
-          <Markdown source={SkillsMD} />
+      <StyledResumeSection>
+        <h2>Skills</h2>
+        <div>
+          {ResumeData[0].skillsets.map((item, index) => {
+            return <SkillsItem {...item} key={index} />;
+          })}
+        </div>
+      </StyledResumeSection>
 
-  </Page>);
+      <StyledResumeSection>
+        <h2>Education</h2>
+        <div>
+          {ResumeData[0].education.map((item, index) => {
+            return <EducationItem {...item} key={index} />;
+          })}
+        </div>
+      </StyledResumeSection>
+    </Page>
+  );
 };
 
 export default ResumePage;

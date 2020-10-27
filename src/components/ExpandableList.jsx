@@ -1,104 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
-import { useMeasure } from "react-use";
 
 export const StyledListItem = styled.li`
   padding: 0;
   margin: 0;
   position: relative;
+  break-inside: avoid;
   &:not(:last-child) {
-    padding-bottom: 1em;
+    padding-bottom: 1.2em;
   }
-  &:before{
-    content: "";
+  &:before {
+    content: "+";
     position: absolute;
-    height: 10px;
-    width: 10px;
-    border: solid 1px ${({theme}) => theme.colors.lightGrey};
-    border-radius: 100%;
-    display: block;
-    // background: ${({theme}) => theme.colors.lightGrey};
-    top: calc(.5em - (5px/2));
-    left: calc(-1em - 5px);
-  }
-
-  span {
-    cursor: ${({ canExpand }) => (canExpand ? "pointer" : "default")};
-  }
-  span:first-child {
-    color: ${({ theme }) => theme.colors.interactive};
-    padding-right: 0.5em;
-  }
-
-  &:hover {
-    span:first-of-type {
-      color: ${({ theme }) => theme.colors.interactiveHover};
-    }
+    left: -1em;
   }
 `;
 
-export const StyledList = styled(motion.div)`
+export const StyledList = styled.ul`
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
   overflow: hidden;
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    overflow: hidden;
-    padding-left: 1em;
-  }
-  ul {
-    border-left: solid 1px ${({ theme }) => theme.colors.white};
-    & ul {
-      margin-top: 0.5em;
-      border-left: solid 1px ${({ theme }) => theme.colors.mediumGrey};
-    }
-  }
+  padding-left: 1em;
+  /* border-left: solid 1px ${({ theme }) => theme.colors.white}; */
 `;
-
-export const StyledMarkdownList = styled.div``;
 
 export const ListItem = ({ children }) => {
-  const canExpand = React.Children.count(children) > 1;
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  return (
-    <StyledListItem canExpand={canExpand} isExpanded={isExpanded}>
-      {React.Children.map(children, (child, index) => {
-        const newProps = { isNested: canExpand, isExpanded: isExpanded };
-        if (index === 0 && canExpand) {
-          return (
-            <div onClick={() => setIsExpanded(!isExpanded)}>
-              <>
-                {canExpand && <span>({!isExpanded ? "+" : "-"})</span>}
-                <span>{React.cloneElement(child, { ...newProps })}</span>
-              </>
-            </div>
-          );
-        }
-        return React.cloneElement(child, newProps);
-      })}
-    </StyledListItem>
-  );
+  return <StyledListItem>{children}</StyledListItem>;
 };
 
-export const List = ({ children, isExpanded = true, canExpand }) => {
-  const [ref, bounds] = useMeasure();
-  const containerInitial = {
-    height: isExpanded ? bounds.height + bounds.x : 0,
-  }
-  const containerAnimation = {
-    height: isExpanded ? bounds.height + bounds.x : 0,
-  };
-  const listAnimation = {
-    opacity: isExpanded ? 1 : 0,
-  };
-
-  return (
-    <StyledList initial={containerInitial} animate={containerAnimation}>
-      <motion.ul ref={ref} animate={listAnimation}>
-        {children}
-      </motion.ul>
-    </StyledList>
-  );
+export const List = ({ children }) => {
+  // this used to do more
+  return <StyledList>{children}</StyledList>;
 };
