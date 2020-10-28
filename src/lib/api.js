@@ -56,6 +56,28 @@ export async function getFeaturedEntries(preview) {
     });
 }
 
+export async function getHomepageData(preview) {
+  const getHomepageContent = async () => {
+    return Promise.all([getFeaturedEntries(preview), getResume(preview)]);
+  };
+
+  return getHomepageContent();
+}
+// RESUME
+
+function parseResume({ fields }) {
+  return {
+    goal_md: fields.goal_md || null,
+  };
+}
+
+export async function getResume(preview) {
+  const entries = await getClient(preview).getEntries({
+    content_type: "resume",
+  });
+  return entries?.items?.map(parseResume)[0];
+}
+
 // PROJECTS
 
 function parseProject({ fields }) {
