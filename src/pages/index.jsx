@@ -5,10 +5,11 @@ import { ExternalLink } from "../components/ExternalLink";
 
 import { Blockquote } from "../components/Blockquote";
 import Link from "next/link";
-import { getFeaturedEntries } from "../lib/api";
+import { getHomepageData } from "../lib/api";
 import { ProjectListing } from "../pages/projects/index";
 import { ArticleListing } from "../pages/articles/index";
 import { KeyboardListing } from "../pages/keyboards/index";
+import { Markdown } from "../components/Markdown";
 
 export const Introduction = styled.div`
   h2 {
@@ -51,7 +52,8 @@ const HomeNavigation = styled.div`
 export const StatsGroups = styled.div``;
 
 const IndexPage = (props) => {
-  const { featuredArticle, featuredKeyboard, featuredProject } = props;
+  const { featuredArticle, featuredKeyboard, featuredProject, goal_md } = props;
+  console.log(props);
   return (
     <Page>
       <Introduction>
@@ -59,7 +61,7 @@ const IndexPage = (props) => {
           Senior Front End Developer <ExternalLink href="mailto:benjaminmikiten@gmail.com">for hire</ExternalLink>
         </h2>
         <Blockquote>
-          <p>I'm a Senior Front End Developer with 8 years experience and a degree in Graphic Design. I like solving problems, and building flexible design system with well-writen code. My design background helps me bridge the gap between design and development in both engineering and communication.</p>
+          <Markdown source={goal_md} />
         </Blockquote>
       </Introduction>
 
@@ -67,7 +69,7 @@ const IndexPage = (props) => {
         <ul>
           <li>
             <h3>
-              Want me on your team? Check out my <Link href={"/resume"}>resume.</Link>
+              Want me on your team? Check out my <Link href={"/resume"}>resume</Link>.
             </h3>
           </li>
           <li>
@@ -97,8 +99,12 @@ const IndexPage = (props) => {
 export default IndexPage;
 
 export async function getStaticProps({ params, preview = false }) {
-  const data = await getFeaturedEntries(preview);
-  const [project, blogPost, keyboard] = data;
+  const homePageData = await getHomepageData(preview);
+  // console.log("HOMEPAGE", homePageData);
+  // const data = await getFeaturedEntries(preview);
+  const [featuredProjects, resume] = homePageData;
+  const [project, blogPost, keyboard] = featuredProjects;
+  const { goal_md } = resume;
 
   return {
     props: {
@@ -106,6 +112,7 @@ export async function getStaticProps({ params, preview = false }) {
       featuredKeyboard: keyboard ?? null,
       featuredProject: project ?? null,
       featuredArticle: blogPost ?? null,
+      goal_md: goal_md ?? null,
     },
   };
 }
