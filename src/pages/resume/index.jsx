@@ -4,6 +4,9 @@ import { Page } from "../../components/Page";
 import ResumeData from "../../assets/BenjaminMikiten_2020_resume.json";
 import { List, ListItem } from "../../components/ExpandableList";
 import { Button, ButtonsGroup } from "../../components/Button";
+import { getResume } from "../../lib/api";
+import { Blockquote } from "../../components/Blockquote";
+import { Markdown } from "../../components/Markdown";
 
 const StyledResumeSection = styled.div`
   padding-bottom: 2rem;
@@ -63,11 +66,15 @@ const EducationItem = ({ school, gradYear, degree, details }) => {
   );
 };
 
-const ResumePage = () => {
+const ResumePage = (props) => {
+  const { goal_md } = props;
   console.log(ResumeData[0].experience);
   return (
     <Page title={"Resume"}>
       <StyledResumeSection>
+        <Blockquote>
+          <Markdown source={goal_md} />
+        </Blockquote>
         <h2>
           Get in touch: <a href="mailto:benjaminmikiten@gmail.com">benjaminmikiten@gmail.com</a>
         </h2>
@@ -113,3 +120,12 @@ const ResumePage = () => {
 };
 
 export default ResumePage;
+
+export async function getStaticProps({ params, preview = false }) {
+  const resumeData = await getResume(preview);
+  return {
+    props: {
+      ...resumeData,
+    },
+  };
+}
