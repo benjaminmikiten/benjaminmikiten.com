@@ -58,7 +58,7 @@ const IndexPage = (props) => {
     <Page>
       <Introduction>
         <h2>
-          Senior Front End Developer <ExternalLink href="mailto:benjaminmikiten@gmail.com">for hire</ExternalLink>
+          Senior Front-end Developer <ExternalLink href="mailto:benjaminmikiten@gmail.com">for hire</ExternalLink>
         </h2>
         <Blockquote>
           <Markdown source={goal_md} />

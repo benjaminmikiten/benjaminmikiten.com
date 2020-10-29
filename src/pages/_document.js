@@ -19,8 +19,8 @@ export default class MyCustomDocument extends Document {
           <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
           {this.props.styleTags}
 
-          <meta property="og:title" content="Benjamin Mikiten, Senior Front End Developer" />
-          <meta property="og:description" content="Senior Front End Developer with 8 years experience and a degree in Graphic Design. I like solving problems, and building flexible design system with well-writen code. My design background helps me bridge the gap between design and development in both engineering and communication." />
+          <meta property="og:title" content="Benjamin Mikiten, Senior Front-end Developer" />
+          <meta property="og:description" content="Senior Front-end Developer with 8 years experience and a degree in Graphic Design. I like solving problems, and building flexible design system with well-writen code. My design background helps me bridge the gap between design and development in both engineering and communication." />
           <meta property="og:image" content="/social.png" />
           <meta property="og:url" content="https://benjaminmikiten.com" />
 
