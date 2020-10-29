@@ -52,8 +52,8 @@ const HomeNavigation = styled.div`
 export const StatsGroups = styled.div``;
 
 const IndexPage = (props) => {
-  const { featuredArticle, featuredKeyboard, featuredProject, goal_md } = props;
-  console.log(props);
+  const { featuredArticle, featuredKeyboard, featuredProject, thisWebsite, goal_md } = props;
+
   return (
     <Page>
       <Introduction>
@@ -84,11 +84,18 @@ const IndexPage = (props) => {
             </h3>
             <ArticleListing {...featuredArticle} />
           </li>
+
           <li>
             <h3>
               I collect and build <Link href={"/keyboards"}>keyboards</Link>!
             </h3>
             <KeyboardListing {...featuredKeyboard} />
+          </li>
+          <li>
+            <h3>
+              Checkout this website's code on <ExternalLink href={thisWebsite.githubUrl}>github</ExternalLink>!
+            </h3>
+            <ProjectListing {...thisWebsite} />
           </li>
         </ul>
       </HomeNavigation>
@@ -100,9 +107,9 @@ export default IndexPage;
 
 export async function getStaticProps({ params, preview = false }) {
   const homePageData = await getHomepageData(preview);
-  // console.log("HOMEPAGE", homePageData);
+  console.log("HOMEPAGE", homePageData);
   // const data = await getFeaturedEntries(preview);
-  const [featuredProjects, resume] = homePageData;
+  const [featuredProjects, resume, thisWebsite] = homePageData;
   const [project, blogPost, keyboard] = featuredProjects;
   const { goal_md } = resume;
 
@@ -112,6 +119,7 @@ export async function getStaticProps({ params, preview = false }) {
       featuredKeyboard: keyboard ?? null,
       featuredProject: project ?? null,
       featuredArticle: blogPost ?? null,
+      thisWebsite: thisWebsite ?? null,
       goal_md: goal_md ?? null,
     },
   };
