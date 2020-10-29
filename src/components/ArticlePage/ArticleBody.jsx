@@ -38,7 +38,7 @@ export const StyledArticleBody = styled.div`
 
   h3 {
     ${({ theme }) => theme.type.mediumTitle};
-    color: ${({ theme }) => theme.colors.green};
+    color: ${({ theme }) => theme.colors.yellow};
     /* &:before {
       display: inline-block;
       content: "### ";
