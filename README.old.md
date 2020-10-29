@@ -1,2 +1,0 @@
-# benjaminmikiten.com
-personal website
