@@ -1,6 +1,8 @@
 # BenjaminMikiten.com
 
-This is my hastily-prepared personal website begun the day I was laid off. It's a Next.js site that talks to Contentful as a CMS and is hosted by Netlify.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f50b48e3-5c68-48c1-94df-3bcb57484956/deploy-status)](https://app.netlify.com/sites/benjaminmikiten/deploys)
+
+This is my hastily-prepared and in-progress personal website begun the day I was laid off. It's a Next.js site that talks to Contentful as a CMS and is hosted by Netlify.
 
 ## Up and Running
 
@@ -21,7 +23,7 @@ This site uses `styled-components`. All the major style variables are in `style/
 
 ## Helpers
 
-`getLocalContent.js`: As a post-install task, I query the CMS to get any content type that I want to keep a local version of and not have to pass through a pages' props using `getStaticProps`, like social items. These are _just_ unweildy enough I wanted to manage them in the CMS, but didn't want to import them on every page. This was a nice in-between solution.
+`getLocalContent.js`: As a post-install task, I query the CMS to get any content type that I want to keep a local version of and not have to pass through a pages' props using `getStaticProps`, like social items. These are _just_ unwieldy enough I wanted to manage them in the CMS, but didn't want to import them on every page. This was a nice in-between solution.
 
 ## CMS
 
