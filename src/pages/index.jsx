@@ -107,8 +107,6 @@ export default IndexPage;
 
 export async function getStaticProps({ params, preview = false }) {
   const homePageData = await getHomepageData(preview);
-  console.log("HOMEPAGE", homePageData);
-  // const data = await getFeaturedEntries(preview);
   const [featuredProjects, resume, thisWebsite] = homePageData;
   const [project, blogPost, keyboard] = featuredProjects;
   const { goal_md } = resume;
