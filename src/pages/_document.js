@@ -15,7 +15,6 @@ export default class MyCustomDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>Benjamin Mikiten</title>
           <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
           {this.props.styleTags}
 

@@ -58,7 +58,7 @@ export async function getFeaturedEntries(preview) {
 
 export async function getHomepageData(preview) {
   const getHomepageContent = async () => {
-    return Promise.all([getFeaturedEntries(preview), getResume(preview)]);
+    return Promise.all([getFeaturedEntries(preview), getResume(preview), getProjectBySlug("benjaminmikiten-com")]);
   };
 
   return getHomepageContent();
