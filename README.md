@@ -26,3 +26,7 @@ This site uses `styled-components`. All the major style variables are in `style/
 ## CMS
 
 Most content is managed by the CMS, and there's a webhook in place to trigger a rebuild whenever that content changes so that the statically-generated version stays up-to-date.
+
+## Analytics
+
+There's no analytics on this site. I don't believe in tracking, despite having implemented it for years.
