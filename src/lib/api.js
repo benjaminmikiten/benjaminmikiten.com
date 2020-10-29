@@ -95,6 +95,7 @@ function parseProject({ fields }) {
     overviewBody: fields.overviewBody || null,
     projectSections: fields.projectSections || null,
     featured: fields.featured || false,
+    githubUrl: fields.githubUrl || null,
   };
 }
 

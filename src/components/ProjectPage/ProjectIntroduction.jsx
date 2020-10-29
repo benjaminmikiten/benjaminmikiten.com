@@ -91,7 +91,7 @@ export const ProjectHero = ({ description, file, title }) => {
   );
 };
 
-const ProjectStats = ({ name, date, myRole, teamRoles, technologies, url }) => {
+const ProjectStats = ({ name, date, myRole, teamRoles, technologies, url, githubUrl }) => {
   return (
     <StyledProjectStats>
       <StyledTable>
@@ -126,6 +126,14 @@ const ProjectStats = ({ name, date, myRole, teamRoles, technologies, url }) => {
               </StyledTableCell>
             </StyledTableRow>
           )}
+          {githubUrl && (
+            <StyledTableRow>
+              <StyledTableCell>Github</StyledTableCell>
+              <StyledTableCell>
+                <Link href={githubUrl}>{githubUrl}</Link>
+              </StyledTableCell>
+            </StyledTableRow>
+          )}
         </tbody>
       </StyledTable>
     </StyledProjectStats>
@@ -133,7 +141,7 @@ const ProjectStats = ({ name, date, myRole, teamRoles, technologies, url }) => {
 };
 
 const ProjectIntroduction = (props) => {
-  const { name, clientName, overviewBody, highlightsBody, challengesBody, overviewImage, date, myRole, technologies, teamRoles, url, projectSections } = props;
+  const { name, clientName, overviewBody, overviewImage, date, myRole, technologies, teamRoles, url, githubUrl } = props;
 
   const statsData = {
     name,
@@ -142,6 +150,7 @@ const ProjectIntroduction = (props) => {
     teamRoles,
     technologies,
     url,
+    githubUrl,
   };
 
   return (
