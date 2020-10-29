@@ -4,6 +4,7 @@ import React from "react";
 import ErrorPage from "next/error";
 import { Page } from "../../components/Page";
 import { getKeyboardBySlug, getAllKeyboardsWithSlug } from "../../lib/api";
+import ArticleBody from "../../components/ArticlePage/ArticleBody";
 import { Markdown } from "../../components/Markdown";
 import { Button } from "../../components/Button";
 import { ProjectHero, StyledProjectTitle } from "../../components/ProjectPage/ProjectIntroduction";
@@ -11,15 +12,28 @@ import { ProjectHero, StyledProjectTitle } from "../../components/ProjectPage/Pr
 const StyledKeyboardPage = styled.div`
   h2 {
     padding-top: 2rem;
+    padding-bottom: 0.5em;
     ${({ theme }) => theme.type.largeTitle};
-    color: ${({ theme }) => theme.colors.yellow};
   }
   h1 {
     padding-top: 2rem;
     ${({ theme }) => theme.type.extraLargeTitle};
-    color: ${({ theme }) => theme.colors.yellow};
   }
 `;
+
+const StyledFirmwareButton = styled.div`
+  width: 100%;
+`;
+
+const FirmwareButton = ({ url }) => {
+  return (
+    <StyledFirmwareButton>
+      <Button as={`a`} target="_blank" rel="noreferrer noopener" href={url}>
+        Get my Firmware
+      </Button>
+    </StyledFirmwareButton>
+  );
+};
 
 // PAGE
 export default function KeyboardsPage({ keyboard, preview }) {
@@ -39,21 +53,22 @@ export default function KeyboardsPage({ keyboard, preview }) {
       ) : (
         <StyledKeyboardPage>
           {media[0] && <ProjectHero {...media[0].fields} />}
+
           <StyledProjectTitle>
             <h1>{model}</h1>
             <span>{switches}</span>
           </StyledProjectTitle>
+          <FirmwareButton url={firmwareUrl} />
+          <br />
 
           <h2>Description</h2>
-          <Markdown source={description} />
+          <ArticleBody body={description} />
           <h2>Mods</h2>
-          <Markdown source={mods} />
+          <ArticleBody body={mods} />
           <h2>Firmware</h2>
-          <Markdown source={firmwareDescription} />
+          <ArticleBody body={firmwareDescription} />
           <br />
-          <Button as={`a`} target="_blank" rel="noreferrer noopener" href={firmwareUrl}>
-            Get my Firmware
-          </Button>
+          <FirmwareButton url={firmwareUrl} />
         </StyledKeyboardPage>
       )}
     </Page>
