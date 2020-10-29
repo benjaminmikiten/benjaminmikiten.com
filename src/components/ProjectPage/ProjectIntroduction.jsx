@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Markdown } from "../Markdown";
+import ArticleBody from "../ArticlePage/ArticleBody";
 import Link from "next/link";
 import { Blockquote } from "../Blockquote";
 import { StyledTable, StyledTableCell, StyledTableRow } from "../Table";
@@ -162,7 +163,7 @@ const ProjectIntroduction = (props) => {
 
       <div>
         <h2>Overview</h2>
-        <Markdown source={overviewBody} />
+        <ArticleBody body={overviewBody} />
       </div>
     </StyledProjectIntroduction>
   );

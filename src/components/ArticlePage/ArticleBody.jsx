@@ -28,32 +28,32 @@ export const StyledArticleBody = styled.div`
 
   h2 {
     ${({ theme }) => theme.type.largeTitle};
-    color: ${({ theme }) => theme.colors.yellow};
-    &:before {
+    /* color: ${({ theme }) => theme.colors.yellow}; */
+    /* &:before {
       display: inline-block;
       content: "## ";
       padding-right: 0.5em;
-    }
+    } */
   }
 
   h3 {
     ${({ theme }) => theme.type.mediumTitle};
-    color: ${({ theme }) => theme.colors.red};
-    &:before {
+    color: ${({ theme }) => theme.colors.green};
+    /* &:before {
       display: inline-block;
       content: "### ";
       padding-right: 0.5em;
-    }
+    } */
   }
 
   h4 {
     ${({ theme }) => theme.type.smallTitle};
-    color: ${({ theme }) => theme.colors.mediumBlue};
-    &:before {
+    /* color: ${({ theme }) => theme.colors.mediumBlue}; */
+    /* &:before {
       display: inline-block;
       content: "####";
       padding-right: 0.5em;
-    }
+    } */
   }
 
   p {
