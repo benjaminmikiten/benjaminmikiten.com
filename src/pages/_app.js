@@ -1,7 +1,6 @@
 import React from "react";
-
+import Head from "next/head";
 import { Theme } from "../styles/Theme";
-// import { Routes } from "../Routes";
 
 export const AppContext = React.createContext();
 function App({ Component, pageProps }) {
@@ -9,6 +8,9 @@ function App({ Component, pageProps }) {
   return (
     <Theme className="the-whole-enchilada">
       <AppContext.Provider value={context}>
+        <Head>
+          <title>Benjamin Mikiten</title>
+        </Head>
         <Component {...pageProps} />
       </AppContext.Provider>
     </Theme>
