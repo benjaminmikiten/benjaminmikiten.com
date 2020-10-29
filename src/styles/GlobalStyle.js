@@ -10,6 +10,12 @@ export const BodyStyle = createGlobalStyle`
     line-height: 1.6;
   }
 
+  a{
+    &:focus{
+      outline: solid 1px ${({ theme }) => theme.colors.focus};
+    }
+  }
+
   p {
     ${({ theme }) => theme.type.body};
   }

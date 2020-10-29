@@ -10,11 +10,12 @@ export const ButtonsGroup = styled.div`
 `;
 
 export const Button = styled.button`
+  cursor: pointer;
   border: solid 2px ${({ theme }) => theme.colors.interactive};
   background: ${({ theme }) => theme.colors.interactive};
   padding: 0.5em 1em;
   &:focus {
-    border: solid 2px ${({ theme }) => theme.colors.interactiveHover};
+    outline: solid 1px ${({ theme }) => theme.colors.focus};
   }
   transition: background 0.3s ease;
   @media (hover: hover) {

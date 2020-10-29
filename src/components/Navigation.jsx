@@ -23,6 +23,9 @@ export const StyledNavItem = styled.div`
     padding: 0.1em 0.25em;
     ${({ theme }) => theme.type.link}
 
+    &:focus {
+      outline: solid 1px ${({ theme }) => theme.colors.focus};
+    }
     @media (hover: hover) {
       &:hover {
         background-color: ${({ theme }) => theme.colors.brightBlue};

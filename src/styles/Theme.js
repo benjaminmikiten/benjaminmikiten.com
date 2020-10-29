@@ -21,9 +21,10 @@ const THEME = MATERIAL_OCEAN_COLORS;
 const SEMANTIC_COLORS = {
   background: THEME.primary,
   bodyType: THEME.lightGrey,
-  titleType: THEME.mediumBlue,
+  titleType: THEME.lightGrey,
   interactive: THEME.brightBlue,
-  interactiveHover: darken(0.2, THEME.brightBlue),
+  interactiveHover: darken(0.25, THEME.brightBlue),
+  focus: THEME.green,
 };
 const FONTS = {
   mono: `'Fira Mono', monospace`,
@@ -69,32 +70,32 @@ const TYPE = {
     font-size: 2.25rem;
     line-height: 1.2;
     font-weight: 700;
-    `,
-    largeTitle: css`
+  `,
+  largeTitle: css`
     margin: 0;
     font-family: ${FONTS.mono};
     color: ${SEMANTIC_COLORS.titleType};
     font-size: 2rem;
     line-height: 1.2;
     font-weight: 700;
-    `,
-    mediumTitle: css`
+  `,
+  mediumTitle: css`
     margin: 0;
     font-family: ${FONTS.mono};
     color: ${SEMANTIC_COLORS.titleType};
     font-weight: 700;
     font-size: 1.5rem;
     line-height: 1.2;
-    `,
-    smallTitle: css`
+  `,
+  smallTitle: css`
     margin: 0;
     font-family: ${FONTS.mono};
     color: ${SEMANTIC_COLORS.titleType};
     font-size: 1.25rem;
     line-height: 1.2;
     font-weight: 700;
-    `,
-    extraSmallTitle: css`
+  `,
+  extraSmallTitle: css`
     margin: 0;
     font-family: ${FONTS.mono};
     color: ${SEMANTIC_COLORS.titleType};
