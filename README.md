@@ -1,4 +1,4 @@
-# BenjaminMikiten.com
+# benjaminmikiten.com
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f50b48e3-5c68-48c1-94df-3bcb57484956/deploy-status)](https://app.netlify.com/sites/benjaminmikiten/deploys)
 
