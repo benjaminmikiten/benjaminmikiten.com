@@ -18,6 +18,7 @@ export const StyledProjectTitle = styled.div`
   h1 {
     ${({ theme }) => theme.type.extraLargeTitle};
     color: ${({ theme }) => theme.colors.lightGrey};
+    padding-bottom: 0.25em;
   }
   span {
     ${({ theme }) => theme.type.largeTitle};
