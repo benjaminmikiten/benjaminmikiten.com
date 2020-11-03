@@ -2,6 +2,8 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/f50b48e3-5c68-48c1-94df-3bcb57484956/deploy-status)](https://app.netlify.com/sites/benjaminmikiten/deploys)
 
+[benjaminmikiten.com](https://benjaminmikiten.com)
+
 This is my hastily-prepared and in-progress personal website begun the day I was laid off. It's a Next.js site that talks to Contentful as a CMS and is hosted by Netlify.
 
 ## Up and Running
