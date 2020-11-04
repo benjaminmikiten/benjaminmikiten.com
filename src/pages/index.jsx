@@ -66,7 +66,7 @@ const IndexPage = (props) => {
       </Introduction>
 
       <HomeNavigation>
-        <ul>
+        <motion.ul>
           <li>
             <h3>
               Want me on your team? Check out my <Link href={"/resume"}>resume</Link>.
@@ -97,7 +97,7 @@ const IndexPage = (props) => {
             </h3>
             <ProjectListing {...thisWebsite} />
           </li>
-        </ul>
+        </motion.ul>
       </HomeNavigation>
     </Page>
   );

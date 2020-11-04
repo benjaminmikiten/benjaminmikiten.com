@@ -80,7 +80,7 @@ const ResumePage = (props) => {
         </h2>
         <h2>Download a copy of my resume</h2>
         <ButtonsGroup>
-          <Button as="a" target="_blank" href={"/BenjaminMikiten_2020_resume_noRefs.pdf"}>
+          <Button as="a" target="_blank" href={"/BenjaminMikiten_2020_resume.pdf"}>
             PDF
           </Button>
           <Button as="a" target="_blank" href={"/BenjaminMikiten_2020_resume.json"}>
