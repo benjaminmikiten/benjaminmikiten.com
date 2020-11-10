@@ -4,7 +4,7 @@
 
 [benjaminmikiten.com](https://benjaminmikiten.com)
 
-This is my hastily-prepared and in-progress personal website begun the day I was laid off. It's a Next.js site that talks to Contentful as a CMS and is hosted by Netlify.
+This is my personal website I put together the day I was laid off. It's a Next.js site that talks to Contentful as a CMS and is hosted by Netlify.
 
 ## Up and Running
 
