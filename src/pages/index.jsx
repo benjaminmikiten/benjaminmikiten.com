@@ -32,10 +32,6 @@ const HomeNavigation = styled.div`
   }
   li {
     padding-bottom: 2rem;
-    &:first-of-type {
-      padding-bottom: 4rem;
-    }
-
     > a {
       padding-top: 1rem;
     }
