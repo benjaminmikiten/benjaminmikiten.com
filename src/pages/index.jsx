@@ -54,15 +54,18 @@ const IndexPage = (props) => {
     <Page>
       <Introduction>
         <h2>
-          Senior Front-end Developer at <ExternalLink href="https://www.springbox.com/">Springbox</ExternalLink>.
+          Senior Software Engineer at <ExternalLink href="https://www.storable.com/">Storable</ExternalLink>.
         </h2>
-        <Blockquote>
-          <Markdown source={goal_md} />
-        </Blockquote>
       </Introduction>
 
       <HomeNavigation>
         <ul>
+        <li>
+            <h3>
+              I collect and build <Link href={"/keyboards"}>keyboards</Link>!
+            </h3>
+            <KeyboardListing {...featuredKeyboard} />
+          </li>
           <li>
             <h3>
               Explore the <Link href={"/projects"}>projects</Link> I'm most proud of.
@@ -74,13 +77,6 @@ const IndexPage = (props) => {
               Read <Link href={"/articles"}>something I wrote</Link>.
             </h3>
             <ArticleListing {...featuredArticle} />
-          </li>
-
-          <li>
-            <h3>
-              I collect and build <Link href={"/keyboards"}>keyboards</Link>!
-            </h3>
-            <KeyboardListing {...featuredKeyboard} />
           </li>
           <li>
             <h3>
