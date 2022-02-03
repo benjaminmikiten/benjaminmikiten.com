@@ -1,36 +1,34 @@
-# benjaminmikiten.com
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f50b48e3-5c68-48c1-94df-3bcb57484956/deploy-status)](https://app.netlify.com/sites/benjaminmikiten/deploys)
+## Getting Started
 
-[benjaminmikiten.com](https://benjaminmikiten.com)
+First, run the development server:
 
-This is my personal website I put together the day I was laid off. It's a Next.js site that talks to Contentful as a CMS and is hosted by Netlify.
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-## Up and Running
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-`yarn install`
-`yarn dev`
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-## Static Generation
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-`yarn build`
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This site uses static generation for all of the pages that come from the CMS. There is a `[slug].js` file for each page that needs to be created at build time that uses `getStaticPaths` and `getStaticProps`.
+## Learn More
 
-The API for interacting with Contentful is located in `lib/api.js`.
+To learn more about Next.js, take a look at the following resources:
 
-## Styling
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-This site uses `styled-components`. All the major style variables are in `style/Theme.js`. That includes a number of type styles, colors, and grid settings.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Helpers
+## Deploy on Vercel
 
-`getLocalContent.js`: As a post-install task, I query the CMS to get any content type that I want to keep a local version of and not have to pass through a pages' props using `getStaticProps`, like social items. These are _just_ unwieldy enough I wanted to manage them in the CMS, but didn't want to import them on every page. This was a nice in-between solution.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## CMS
-
-Most content is managed by the CMS, and there's a webhook in place to trigger a rebuild whenever that content changes so that the statically-generated version stays up-to-date.
-
-## Analytics
-
-There's no analytics on this site. I don't believe in tracking, despite having implemented it for years.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
