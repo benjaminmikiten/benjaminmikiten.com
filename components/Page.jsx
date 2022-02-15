@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from './Header';
+import Sidebar from './Sidebar';
 
 function Page({ children }) {
   return (
-    <div className="w-full flex">
-      <Header />
+    <div className="w-full min-h-screen flex">
+      <Sidebar />
       <main className="p-2">
         {children}
       </main>
@@ -13,8 +13,11 @@ function Page({ children }) {
   );
 }
 
+Page.defaultProps = {
+  children: null,
+};
 Page.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 export default Page;

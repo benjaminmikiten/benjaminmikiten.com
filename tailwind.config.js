@@ -1,3 +1,5 @@
+const customTheme = require('./styles/customTheme');
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -5,7 +7,14 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: ['Noto Sans', 'sans-serif'],
+      serif: ['Noto Serif', 'serif'],
+      mono: ['Noto Mono', 'serif'],
+    },
+    extend: customTheme,
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-dracula')('dracula'),
+  ],
 };
