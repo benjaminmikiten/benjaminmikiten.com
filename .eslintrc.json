@@ -4,6 +4,7 @@
         "es2021": true
     },
     "extends": [
+        "extends": "next",
         "plugin:react/recommended",
         "airbnb"
     ],

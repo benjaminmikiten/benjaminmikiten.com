@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { FaGithub, FaKeybase } from 'react-icons/fa';
 import Text from '../Text';
+import PropTypes from 'prop-types';
 
 export function SocialItem({ icon, href, label }) {
   return (
@@ -14,6 +15,12 @@ export function SocialItem({ icon, href, label }) {
       </Link>
     </li>
   );
+}
+
+SocialItem.propTypes = {
+  icon: PropTypes.node,
+  href: PropTypes.string,
+  label: PropTypes.string,
 }
 
 function SocialList() {
@@ -29,7 +36,7 @@ function SocialList() {
 
   return (
     <ul className="flex gap-1 flex-col">
-      {items.map((i) => <SocialItem {...i} key={i.href} />)}
+      {items.map(({icon, href, label}) => <SocialItem icon={icon} href={href} label={label} key={href} />)}
     </ul>
   );
 }
