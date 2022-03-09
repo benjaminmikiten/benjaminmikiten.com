@@ -1,0 +1,1 @@
+docker tag a34a45868a4a 022598018111.dkr.ecr.us-west-1.amazonaws.com/personal_website:latest
