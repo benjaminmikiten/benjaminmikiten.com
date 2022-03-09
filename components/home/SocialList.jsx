@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 export function SocialItem({ icon, href, label }) {
   return (
     <li>
-      <Link href={href}>
+      <Link passHref={href}>
         <span className="flex gap-2 align-middle group hover:cursor-pointer">
           {React.cloneElement(icon, { className: 'fill-dracula-light group-hover:fill-dracula-light-200' })}
           <Text className="text-dracula-light group-hover:text-dracula-light-200">{label}</Text>
